@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForcaDaIlha3.Web", "ForcaDaIlha3\ForcaDaIlha3.Web.csproj", "{E7230638-6CC1-4041-ADC6-E517DAC97FBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio", "Repositorio\Repositorio.csproj", "{6FBBAF10-49F5-4754-B302-725F89307D67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForcaDaIlha3.Repositorio", "Repositorio\ForcaDaIlha3.Repositorio.csproj", "{6FBBAF10-49F5-4754-B302-725F89307D67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{CDEFB274-2AAE-4EC1-B917-AE9A7B57C5AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForcaDaIlha3.Dominio", "Dominio\ForcaDaIlha3.Dominio.csproj", "{CDEFB274-2AAE-4EC1-B917-AE9A7B57C5AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
