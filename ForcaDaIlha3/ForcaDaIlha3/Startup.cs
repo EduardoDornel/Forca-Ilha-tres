@@ -6,6 +6,7 @@ using Owin;
 
 [assembly: OwinStartup(typeof(ForcaDaIlha3.Startup))]
 
+
 namespace ForcaDaIlha3
 {
     public partial class Startup
