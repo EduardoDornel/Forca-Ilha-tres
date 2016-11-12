@@ -50,12 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextoDeDados.cs" />
-    <Compile Include="Migrations\201611111944115_Initial.cs" />
-    <Compile Include="Migrations\201611111944115_Initial.Designer.cs">
-      <DependentUpon>201611111944115_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201611112356107_initial.cs" />
+    <Compile Include="Migrations\201611112356107_initial.Designer.cs">
+      <DependentUpon>201611112356107_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositorios\PalavraRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -68,10 +70,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611111944115_Initial.resx">
-      <DependentUpon>201611111944115_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611112356107_initial.resx">
+      <DependentUpon>201611112356107_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
