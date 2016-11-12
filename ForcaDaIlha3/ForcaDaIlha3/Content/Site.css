@@ -1,7 +1,9 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+﻿html,body{height: 100%;}
+body{ 
+  background:-webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
+  background:-moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);  
+ background:radial-gradient( center center,circle cover,#078ABE, #0D343A); 
+} 
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -14,4 +16,16 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.formulario-centralizado {
+  text-align: center;
+}
+
+.formulario-centralizado--top {
+  align-self: flex-start;
+}
+
+.formulario-centralizado--bottom {
+  align-self: flex-end;
 }
