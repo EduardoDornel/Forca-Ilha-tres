@@ -9,6 +9,9 @@
     registrarBindsEventos() {
     }
 
+    mudarCorFundo(dificuldade) {
+    }
+
     renderizarEstadoInicial() {
         this.$elem.show();
     }

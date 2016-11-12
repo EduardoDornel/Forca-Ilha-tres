@@ -1,15 +1,30 @@
-﻿<div id="tela-menu" class="sub-tela formulario-centralizado col-md-5">
+﻿<div id="tela-menu" class="sub-tela">
     <form id="formLogin" class="form-horizontal">
         <div class="form-group">
-            <h2 class="titulo col-md-offset-3 col-md-3">Jogo da forca!</h2>
+            <h2 class="titulo col-md-offset-3">JOGO DA FORCA!</h2>
         </div>
         <div class="form-group">
-            <label for="nickname" class="col-md-3">Nickname</label>
+            <label for="nickname" class="col-sm-2 control-label">Nickname</label>
             <div class="col-md-9">
                 <input type="text" id="nome-player" name="nickname" class="form-control has-error" required>
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Dificuldade</label>
+            <input id="rad1" type="radio" name="dificuldade" checked class="radio-button">
+            <section class="section-dificuldade dif-normal">
+                <label for="rad2"><i class="fa fa-chevron-left"></i></label>
+                <h1>Normal</h1>
+                <label for="rad2"><i class="fa fa-chevron-right"></i></label>
+            </section>
+            <input id="rad2" type="radio" name="dificuldade" class="radio-button">
+            <section class="section-dificuldade dif-bh">
+                <label for="rad1"><i class="fa fa-chevron-left"></i></label>
+                <h1>BH</h1>
+                <label for="rad1"><i class="fa fa-chevron-right"></i></label>
+            </section>
+        </div>
+        
         <div class="form-group">
             <div id="container-botao-entrar" class="col-md-offset-3 col-md-3 pull-right">
                 <button type="submit" class="btn btn-primary">Começar</button>
@@ -19,6 +34,7 @@
 </div>
 <div id="telaJogo" class="sub-tela">
 </div>
+<script src="https://use.fontawesome.com/7cd3078fa6.js"></script>
 @section Scripts{
     @Scripts.Render("~/bundles/app")
 }

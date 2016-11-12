@@ -1,8 +1,8 @@
 ﻿html,body{height: 100%;}
 body{ 
-  background:-webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
-  background:-moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);  
- background:radial-gradient( center center,circle cover,#078ABE, #0D343A); 
+    background:-webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
+    background:-moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);  
+    background:radial-gradient( center center,circle cover,#078ABE, #0D343A); 
 } 
 
 /* Set padding to keep content from hitting the edges */
@@ -29,3 +29,38 @@ textarea {
 .formulario-centralizado--bottom {
   align-self: flex-end;
 }
+
+.radio-button {
+	display: none;
+}
+.radio-button:checked + section {
+	display: inline-block;
+}
+.section-dificuldade{
+    display: none;
+    height: 100%;
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+.section-dificuldade > h1{
+    display: inline-block;
+	margin-bottom: 0;
+	font-weight: lighter;
+	font-size: 30px;
+    margin: 0px;
+}
+.section-dificuldade > label{
+	display: inline-block;
+	cursor: pointer;
+	font-size: 25px;
+}
+.section-dificuldade label:first-child{
+	margin-left: 100px;
+}
+#tela-menu{
+    margin: 100px auto;
+    width: 500px;
+}
+				
+
