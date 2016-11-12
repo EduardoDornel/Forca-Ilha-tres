@@ -11,5 +11,7 @@ namespace ForcaDaIlha3.Dominio.Repositorios
         IEnumerable<Usuario> Todos();
         bool VerificarExistencia(string nomeUsuario);
         void Registrar(Usuario usuario);
+        void PontuarNormal(int pontos, int idUsuario);
+        void PontuarBH(int pontos, int idUsuario);
     }
 }
