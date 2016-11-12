@@ -10,6 +10,7 @@ namespace ForcaDaIlha3.Dominio.Repositorios
     {
         IList<Palavra> PalavrasNormal(int pulo);
         IList<Palavra> PalavrasBH(int pulo);
-        Palavra PalavraPorId(int id);                
+        Palavra PalavraPorId(int id);
+        int MaiorId();                
     }
 }

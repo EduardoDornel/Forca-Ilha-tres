@@ -11,6 +11,14 @@ namespace ForcaDaIlha3.Repositorio.Repositorios
 {
     public class PalavraRepositorio : IPalavraRepositorio
     {
+        public int MaiorId()
+        {
+            using (var contexto = new ContextoDeDados())
+            {
+                return contexto.Palavra.Max(_ => _.Id);
+            }
+        }
+
         public Palavra PalavraPorId(int id)
         {
             using (var contexto = new ContextoDeDados())

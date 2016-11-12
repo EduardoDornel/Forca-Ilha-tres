@@ -16,6 +16,11 @@ namespace ForcaDaIlha3.Dominio.Servicos
 
         public IPalavraRepositorio PalavraRepositorio { get; set; }
 
+        public int MaiorId()
+        {
+            return this.PalavraRepositorio.MaiorId(); ;
+        }
+
         public Palavra PalavraPorId(int id)
         {
             return this.PalavraRepositorio.PalavraPorId(id);
