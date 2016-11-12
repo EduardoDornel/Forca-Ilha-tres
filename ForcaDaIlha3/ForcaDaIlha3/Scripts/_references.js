@@ -1,6 +1,7 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="app/_start.js" />
 /// <reference path="app/forca.js" />
+/// <reference path="app/telajogo.js" />
 /// <reference path="app/telamenu.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="handlebars.amd.min.js" />
