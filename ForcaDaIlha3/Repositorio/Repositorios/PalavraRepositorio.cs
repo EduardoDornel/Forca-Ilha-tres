@@ -27,22 +27,19 @@ namespace ForcaDaIlha3.Repositorio.Repositorios
             }
         }
 
-        public IList<Palavra> PalavrasBH(int pulo = 1)
+        public IList<int> PalavrasBH()
         {
             using (var contexto = new ContextoDeDados())
             {
-                return contexto.Palavra.Where(_ => _.TamanhoDaPalavra >= 12)
-                                                    .Skip(5*(pulo-1))
-                                                    .Take(5)
-                                                    .ToList();
+                return contexto.Palavra.Where(_ => _.TamanhoDaPalavra >= 12).Select(_ => _.Id).ToList();
             }
         }
 
-        public IList<Palavra> PalavrasNormal(int pulo)
+        public IList<int> PalavrasNormal()
         {
             using (var contexto = new ContextoDeDados())
             {
-                return contexto.Palavra.Skip(5*(pulo - 1)).Take(5).ToList();
+                return contexto.Palavra.Select(_ => _.Id).ToList();
             }
         }
     }

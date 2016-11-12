@@ -26,12 +26,12 @@ namespace ForcaDaIlha3.Dominio.Servicos
             return this.PalavraRepositorio.PalavraPorId(id);
         }
 
-        public IList<Palavra> PalavrasBH(int pulo)
+        public IList<int> PalavrasBH()
         {
             return this.PalavraRepositorio.PalavrasBH(pulo);
         }
 
-        public IList<Palavra> PalavrasNormal(int pulo)
+        public IList<int> PalavrasNormal()
         {
             return this.PalavrasNormal(pulo);
         }
