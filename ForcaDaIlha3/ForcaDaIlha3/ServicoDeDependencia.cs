@@ -13,5 +13,10 @@ namespace ForcaDaIlha3.Web.Servicos
         {
             return new PalavraServico(new PalavraRepositorio());
         }
+
+        public static UsuarioServico MontarUsuarioServico()
+        {
+            return new UsuarioServico(new UsuarioRepositorio());
+        }
     }
 }
