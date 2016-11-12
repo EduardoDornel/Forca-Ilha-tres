@@ -35,5 +35,13 @@ namespace ForcaDaIlha3.Repositorio.Repositorios
                 return usuario != null;
             }
         }
+
+        public List<Usuario> LeaderBoard()
+        {
+            using (var contexto = new ContextoDeDados())
+            {
+                return contexto.Usuario.OrderBy(p => p.Pontuacao).ToList();
+            }
+        }
     }
 }
