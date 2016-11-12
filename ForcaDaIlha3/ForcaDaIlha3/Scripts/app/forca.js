@@ -14,10 +14,7 @@ forca.renderizarTela = function (nome) {
             new TelaMenu('#tela-menu');
             break;
         case 'modo-normal':
-            new TelaModoNormal('#tela-modo-normal');
-            break;
-        case 'modo-bh':
-            new TelaModoBH('#modo-bh');
+            new TelaJogo('#tela-jogo');
             break;
     }
 
