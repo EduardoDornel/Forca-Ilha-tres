@@ -54,6 +54,10 @@
     <Compile Include="Migrations\201611112356107_initial.Designer.cs">
       <DependentUpon>201611112356107_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611121321257_AdicionarDivisaoDePontuacao.cs" />
+    <Compile Include="Migrations\201611121321257_AdicionarDivisaoDePontuacao.Designer.cs">
+      <DependentUpon>201611121321257_AdicionarDivisaoDePontuacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositorios\PalavraRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611112356107_initial.resx">
       <DependentUpon>201611112356107_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611121321257_AdicionarDivisaoDePontuacao.resx">
+      <DependentUpon>201611121321257_AdicionarDivisaoDePontuacao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

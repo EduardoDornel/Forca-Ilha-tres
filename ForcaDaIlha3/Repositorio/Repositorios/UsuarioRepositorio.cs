@@ -36,11 +36,14 @@ namespace ForcaDaIlha3.Repositorio.Repositorios
             }
         }
 
-        public List<Usuario> LeaderBoard()
+        public List<Usuario> LeaderBoard(string filtro)
         {
             using (var contexto = new ContextoDeDados())
             {
-                return contexto.Usuario.OrderBy(p => p.Pontuacao).ToList();
+                if (filtro == "BH")
+                    return contexto.Usuario.OrderBy(p => p.PontuacaoBH).ToList();
+                else
+                    return contexto.Usuario.OrderBy(p => p.PontuacaoNormal).ToList();
             }
         }
     }
