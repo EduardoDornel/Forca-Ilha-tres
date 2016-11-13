@@ -14,9 +14,18 @@
             submitHandler: function () {
                 self.$btnSubmit.text('Carregando...');
                 self.$btnSubmit.attr('disabled', true);
-                self.carregarJogo();
+                self.verificarUsuario(self);
             }
         });
+    }
+
+    verificarUsuario(self) {
+        var nome = $('#nome-player').val();
+        $.get('/api/jogo', { nome: nome })
+            .done(function (res) {
+                window.localStorage.setItem('id-usuario', res.dados);
+                self.carregarJogo();
+            })
     }
 
     carregarJogo() {

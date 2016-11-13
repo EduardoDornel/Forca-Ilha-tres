@@ -11,6 +11,15 @@ namespace ForcaDaIlha3.Repositorio.Repositorios
 {
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
+        public int IdPorNome(string nome)
+        {
+            using (var contexto = new ContextoDeDados())
+            {
+                Usuario usuario = contexto.Usuario.FirstOrDefault(u => u.Nome.Equals(nome));
+                return usuario.Id;
+            }
+        }
+
         public void Registrar(Usuario usuario)
         {
             using (var contexto = new ContextoDeDados())
@@ -32,7 +41,7 @@ namespace ForcaDaIlha3.Repositorio.Repositorios
         {
             using (var contexto = new ContextoDeDados())
             {
-                Usuario usuario = contexto.Usuario.FirstOrDefault(u => u.Nome.Contains(nomeUsuario));
+                Usuario usuario = contexto.Usuario.FirstOrDefault(u => u.Nome.Equals(nomeUsuario));
                 return usuario != null;
             }
         }

@@ -12,5 +12,6 @@ namespace ForcaDaIlha3.Dominio.Repositorios
 
         bool VerificarExistencia(string nomeUsuario);
         void Registrar(Usuario usuario);
+        int IdPorNome(string nome);
     }
 }

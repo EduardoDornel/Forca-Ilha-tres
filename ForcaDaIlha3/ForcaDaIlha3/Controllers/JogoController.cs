@@ -32,11 +32,24 @@ namespace ForcaDaIlha3.Web.Controllers
                 dados = ids
             });
         }
+        public IHttpActionResult GetCadastrarUsuario(string nome)
+        {
+            UsuarioServico usuarioServico = ServicoDeDependencia.MontarUsuarioServico();
+            var existe = usuarioServico.VerificarExistencia(nome);
+            if (!existe)
+            {
+                Usuario novoUsuario = new Usuario();
+                novoUsuario.Nome = nome;
+                usuarioServico.Registrar(novoUsuario);
+            }
+            var idUsuario = usuarioServico.IdPorNome(nome);
+            return Ok(new{ dados = idUsuario });
+        }
         [ResponseType(typeof(Palavra))]
-        public IHttpActionResult PostPalavra(List<int> idsDoLocalStorage)
+        public IHttpActionResult GetPalavra(List<int> idsDoLocalStorage)
         {
             Palavra palavra = EncontrarPalavra(idsDoLocalStorage);            
-            return CreatedAtRoute("DefaultApi", new { id = palavra.Id},palavra);
+            return Ok(palavra);
         }
         
         private Palavra EncontrarPalavra(List<int> idsDoLocalStorage)

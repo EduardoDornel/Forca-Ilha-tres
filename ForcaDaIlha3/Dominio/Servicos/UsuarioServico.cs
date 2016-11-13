@@ -15,6 +15,11 @@ namespace ForcaDaIlha3.Dominio.Servicos
         }
         public IUsuarioRepositorio UsuarioRepositorio { get; set; }
 
+        public int IdPorNome(string nome)
+        {
+            return this.UsuarioRepositorio.IdPorNome(nome);
+        }
+
         public void Registrar(Usuario usuario)
         {
             this.UsuarioRepositorio.Registrar(usuario);
