@@ -33,9 +33,11 @@ textarea {
 .radio-button {
 	display: none;
 }
+
 .radio-button:checked + section {
 	display: inline-block;
 }
+
 .section-dificuldade{
     display: none;
     height: 100%;
@@ -43,6 +45,7 @@ textarea {
     text-align: center;
     margin: auto;
 }
+
 .section-dificuldade > h1{
     display: inline-block;
 	margin-bottom: 0;
@@ -50,17 +53,73 @@ textarea {
 	font-size: 30px;
     margin: 0px;
 }
+
 .section-dificuldade > label{
 	display: inline-block;
 	cursor: pointer;
 	font-size: 25px;
 }
+
 .section-dificuldade label:first-child{
 	margin-left: 100px;
 }
+
 #tela-menu{
     margin: 100px auto;
     width: 500px;
 }
-				
 
+.pontuacao{
+    display: inline-block;
+    float: right;
+    margin: 30px 5px 0;
+    font-size: 15px;
+}
+.pontuacao > h2{
+    margin: 0;
+}
+
+header{
+    height: 100%;
+    width: 100%;
+}
+
+footer{
+    position: absolute;
+    bottom: 3px;
+    width: 83%;
+}
+
+.btn-jogo{
+    float: right;
+    margin: 30px 5px 0;
+    font-size: 15px;
+}
+.campo-letra{
+    display: inline-block;
+    border-bottom: 3px #000000 solid;
+}
+.campo-letra > h1{
+    font-size: 30px;
+}
+.conteudo{
+    float: left;
+    margin-top: 15%;
+    width: 100%;
+}
+.dificuldade{
+    display: inline-block;
+}
+.letras-erradas{
+    float: left;
+    margin-top: 200px;
+    margin-right: 20px;
+    float: right;
+}
+.letras-erradas > h2{
+    display: inline-block;
+    margin-left: 10px;
+}
+.palavra{
+    margin: auto;
+}

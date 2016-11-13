@@ -1,19 +1,25 @@
-﻿<div class="cabecalho-jogo">
-    <div class="pontuacao"><h2>{{pontuacao}} pts</h2></div>
+﻿<header>
+    <button class="btn btn-jogo" id="btn-reiniciar-jogo">REINICIAR</button>
     <button class="btn btn-jogo" id="btn-dica">DICA</button>
     <button class="btn btn-jogo" id="btn-palpitar-palavra">PALPITAR PALAVRAR</button>
-    <button class="btn btn-jogo" id="btn-reiniciar-jogo">REINICIAR</button>
-</div>
-<div class="row">
-       <!-- <div class="palavra">
-            {{#each letras}}
-            <div class="campo-letra">
-                <h1></h1>
-            </div>
-            {{/each}}
-        </div>-->
+    <div class="pontuacao"><h2>{{pontuacao}} pts</h2></div>
+</header>
+<div class="conteudo">
+    <div class="palavra">
+        {{#each letras}}
+        <div class="campo-letra">
+            <h1>A</h1>
+        </div>
+        {{/each}}
+    </div>
 </div>
 <div class="letras-erradas">
-    
+
 </div>
-<div class="dificuldade">DIFICULDADE: {{dificuldade}}</div>
+<footer>
+    <div class="dificuldade">
+        <h2>
+            DIFICULDADE: {{dificuldade}}
+        </h2>
+    </div>
+</footer>
