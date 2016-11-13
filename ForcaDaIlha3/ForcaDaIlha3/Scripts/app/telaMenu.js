@@ -24,19 +24,18 @@
         $.get('/api/jogo', { nome: nome })
             .done(function (res) {
                 window.localStorage.setItem('id-usuario', res.dados);
-                self.carregarJogo();
+                self.carregarJogo(self);
             })
     }
 
-    carregarJogo() {
-        this.dificuldade = $('input[name="dificuldade"]:checked').val();
-        console.log(this.dificuldade);
-        this.idsPalavras;
-        $.get('/api/jogo', { dificuldade: this.dificuldade })
+    carregarJogo(self) {
+        self.dificuldade = $('input[name="dificuldade"]:checked').val();
+        self.idsPalavras;
+        $.get('/api/jogo', { dificuldade: self.dificuldade })
             .done(function (res) {
-                this.idsPalavras = res.dados;
-                window.localStorage.setItem('ids-palavras', JSON.stringify(this.idsPalavras));
-                forca.renderizarTela(this.dificuldade);
+                self.idsPalavras = res.dados;
+                window.localStorage.setItem('ids-palavras', JSON.stringify(self.idsPalavras));
+                forca.renderizarTela(self.dificuldade);
             });
     }
 
