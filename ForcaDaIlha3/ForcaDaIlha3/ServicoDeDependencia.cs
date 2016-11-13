@@ -18,5 +18,9 @@ namespace ForcaDaIlha3.Web.Servicos
         {
             return new UsuarioServico(new UsuarioRepositorio());
         }
+        public static PontuacaoServico MontarPontuacaoServico()
+        {
+            return new PontuacaoServico(new PontuacaoRepositorio());
+        }
     }
 }

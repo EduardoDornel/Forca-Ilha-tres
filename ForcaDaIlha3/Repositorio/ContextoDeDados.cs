@@ -15,6 +15,7 @@ namespace ForcaDaIlha3.Repositorio
 
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Palavra> Palavra { get; set; }
+        public DbSet<Pontuacao> Pontuacao { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
