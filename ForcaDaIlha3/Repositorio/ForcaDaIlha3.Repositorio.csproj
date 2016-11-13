@@ -58,6 +58,10 @@
     <Compile Include="Migrations\201611121321257_AdicionarDivisaoDePontuacao.Designer.cs">
       <DependentUpon>201611121321257_AdicionarDivisaoDePontuacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611131641325_adicionar tabela pontuacao.cs" />
+    <Compile Include="Migrations\201611131641325_adicionar tabela pontuacao.Designer.cs">
+      <DependentUpon>201611131641325_adicionar tabela pontuacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositorios\PalavraRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611121321257_AdicionarDivisaoDePontuacao.resx">
       <DependentUpon>201611121321257_AdicionarDivisaoDePontuacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611131641325_adicionar tabela pontuacao.resx">
+      <DependentUpon>201611131641325_adicionar tabela pontuacao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

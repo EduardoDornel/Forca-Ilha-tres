@@ -15,8 +15,8 @@
         //recebe um evento de tecla pressionada e retorna o valor da tecla pressionada
         function teclaPressionada(evento) {
             evento = evento || window.event;
-            var key = evento.keyCode || evt.which;
-            return String.fromCharCode(key);
+            var tecla = evento.keyCode || evento.which;
+            return String.fromCharCode(tecla);
         }
 
     }
