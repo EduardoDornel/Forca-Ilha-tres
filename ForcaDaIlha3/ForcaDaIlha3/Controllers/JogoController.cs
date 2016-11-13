@@ -5,22 +5,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace ForcaDaIlha3.Web.Controllers
 {
-    public class JogoController : Controller
+    public class JogoController : ApiController
     {
-        // GET: Jogo
-        public ActionResult Index()
+        public IHttpActionResult GetIds(string dificuldade)
         {
-            return View();
+            PalavraServico palavraServico = ServicoDeDependencia.MontarPalavraServico();
+            List<int> ids = new List<int>();
+            if (dificuldade.Equals("bh"))
+            {
+                ids = palavraServico.PalavrasBH().ToList();
+            }
+            else if (dificuldade.Equals("normal"))
+            {
+                ids = palavraServico.PalavrasNormal().ToList();
+            }
+            return Ok(ids);
         }
 
-        public ActionResult GetPalavra(List<int> idsDoLocalStorage)
+        public IHttpActionResult GetPalavra(List<int> idsDoLocalStorage)
         {
             Palavra palavra = EncontrarPalavra(idsDoLocalStorage);            
-            return View();
+            return Ok(palavra);
         }
         
         private Palavra EncontrarPalavra(List<int> idsDoLocalStorage)
