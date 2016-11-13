@@ -8,14 +8,27 @@
 
     registrarBindsEventos() {
         this.$formLogin = $('#formLogin');
-        this.$btnSubmit = this.$formLogin.find('button[type=submit]');
-        this.carregarJogo();
+        this.$btnSubmit = $('#btn-comecar');
+        var self = this;
+        let validator = this.$formLogin.validate({
+            submitHandler: function () {
+                self.$btnSubmit.text('Carregando...');
+                self.$btnSubmit.attr('disabled', true);
+                self.carregarJogo();
+            }
+        });
     }
 
     carregarJogo() {
-        setTimeout(function () {
-            forca.renderizarTela($('input[name="dificuldade"]:checked').val());
-        }, 2000);
+        this.dificuldade = $('input[name="dificuldade"]:checked').val();
+        console.log(this.dificuldade);
+        this.idsPalavras;
+        $.get('/api/jogo', { dificuldade: this.dificuldade })
+            .done(function (res) {
+                this.idsPalavras = res.dados;
+                window.localStorage.setItem('ids-palavras', JSON.stringify(this.idsPalavras));
+                forca.renderizarTela(this.dificuldade);
+            });
     }
 
     renderizarEstadoInicial() {

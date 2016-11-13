@@ -27,7 +27,10 @@ namespace ForcaDaIlha3.Web.Controllers
             {
                 ids = palavraServico.PalavrasNormal().ToList();
             }
-            return Ok(ids);
+            return Ok(new
+            {
+                dados = ids
+            });
         }
         [ResponseType(typeof(Palavra))]
         public IHttpActionResult PostPalavra(List<int> idsDoLocalStorage)
