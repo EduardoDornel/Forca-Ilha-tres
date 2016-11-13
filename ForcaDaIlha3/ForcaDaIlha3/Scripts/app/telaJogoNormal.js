@@ -1,4 +1,4 @@
-﻿class TelaJogo {
+﻿class TelaJogoNormal {
 
     constructor(seletor) {
         this.$elem = $(seletor);

@@ -7,9 +7,15 @@
     }
 
     registrarBindsEventos() {
+        this.$formLogin = $('#formLogin');
+        this.$btnSubmit = this.$formLogin.find('button[type=submit]');
+        this.carregarJogo();
     }
 
-    mudarCorFundo(dificuldade) {
+    carregarJogo() {
+        setTimeout(function () {
+            forca.renderizarTela($('input[name="dificuldade"]:checked').val());
+        }, 2000);
     }
 
     renderizarEstadoInicial() {

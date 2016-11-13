@@ -233,7 +233,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\forca.js" />
-    <Content Include="Scripts\app\telaJogo.js" />
+    <Content Include="Scripts\app\telaJogoBH.js" />
+    <Content Include="Scripts\app\telaJogoNormal.js" />
     <Content Include="Scripts\app\telaMenu.js" />
     <Content Include="Scripts\app\_start.js" />
     <Content Include="Scripts\bootstrap.js" />
