@@ -33,7 +33,7 @@ namespace ForcaDaIlha3.Dominio.Servicos
 
         public IList<int> PalavrasNormal()
         {
-            return this.PalavrasNormal();
+            return this.PalavraRepositorio.PalavrasNormal();
         }
     }
 }

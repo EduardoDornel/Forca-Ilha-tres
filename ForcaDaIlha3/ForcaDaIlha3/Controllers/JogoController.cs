@@ -7,12 +7,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Http;
+using System.Web.Http.Description;
 using System.Web.Mvc;
 
 namespace ForcaDaIlha3.Web.Controllers
 {
     public class JogoController : ApiController
     {
+        //  api/jogo/?dificuldade=
         public IHttpActionResult GetIds(string dificuldade)
         {
             PalavraServico palavraServico = ServicoDeDependencia.MontarPalavraServico();
@@ -27,11 +29,11 @@ namespace ForcaDaIlha3.Web.Controllers
             }
             return Ok(ids);
         }
-
-        public IHttpActionResult GetPalavra(List<int> idsDoLocalStorage)
+        [ResponseType(typeof(Palavra))]
+        public IHttpActionResult PostPalavra(List<int> idsDoLocalStorage)
         {
             Palavra palavra = EncontrarPalavra(idsDoLocalStorage);            
-            return Ok(palavra);
+            return CreatedAtRoute("DefaultApi", new { id = palavra.Id},palavra);
         }
         
         private Palavra EncontrarPalavra(List<int> idsDoLocalStorage)
