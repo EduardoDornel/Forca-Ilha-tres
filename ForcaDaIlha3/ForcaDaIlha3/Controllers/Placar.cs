@@ -12,15 +12,10 @@ namespace ForcaDaIlha3.Web.Controllers
     public class Placar : ApiController
     {
         // GET: LeaderBoard
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public IHttpActionResult ListarPlacar(string filtro = null)
         {
-            UsuarioServico usuarioServico = ServicoDeDependencia.MontarUsuarioServico();
-            return Ok(usuarioServico.UsuarioRepositorio.LeaderBoard(1, filtro));
+            PontuacaoServico pontuacaoServico = ServicoDeDependencia.MontarPontuacaoServico();
+            return Ok(pontuacaoServico.LeaderBoard(1, filtro));
         }
     }
 }

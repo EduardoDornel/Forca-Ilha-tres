@@ -61,6 +61,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositorios\PalavraRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\PontuacaoRepositorio.cs" />
     <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>

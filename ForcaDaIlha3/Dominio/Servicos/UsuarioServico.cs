@@ -15,21 +15,6 @@ namespace ForcaDaIlha3.Dominio.Servicos
         }
         public IUsuarioRepositorio UsuarioRepositorio { get; set; }
 
-        public IList<Usuario> LeaderBoard(int pulo = 1, string filtro = null)
-        {
-            return this.UsuarioRepositorio.LeaderBoard();
-        }
-
-        public void PontuarBH(int pontos, int idUsuario)
-        {
-            this.UsuarioRepositorio.PontuarBH(pontos, idUsuario);
-        }
-
-        public void PontuarNormal(int pontos, int idUsuario)
-        {
-            this.UsuarioRepositorio.PontuarBH(pontos, idUsuario);
-        }
-
         public void Registrar(Usuario usuario)
         {
             this.UsuarioRepositorio.Registrar(usuario);

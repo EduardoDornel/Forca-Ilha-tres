@@ -12,7 +12,5 @@ namespace ForcaDaIlha3.Dominio
 
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int PontuacaoNormal { get; set; }
-        public int PontuacaoBH{ get; set; }
     }
 }
