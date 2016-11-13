@@ -11,7 +11,7 @@ namespace ForcaDaIlha3.Dominio.Servicos
     {
         public PalavraServico(IPalavraRepositorio palavraRepositorio)
         {
-            this.PalavraRepositorio = palavraRepositorio];
+            this.PalavraRepositorio = palavraRepositorio;
         }
 
         public IPalavraRepositorio PalavraRepositorio { get; set; }
@@ -28,12 +28,12 @@ namespace ForcaDaIlha3.Dominio.Servicos
 
         public IList<int> PalavrasBH()
         {
-            return this.PalavraRepositorio.PalavrasBH(pulo);
+            return this.PalavraRepositorio.PalavrasBH();
         }
 
         public IList<int> PalavrasNormal()
         {
-            return this.PalavrasNormal(pulo);
+            return this.PalavrasNormal();
         }
     }
 }
