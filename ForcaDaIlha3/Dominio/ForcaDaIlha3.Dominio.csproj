@@ -45,6 +45,7 @@
     <Compile Include="Repositorios\IPalavraRepositorio.cs" />
     <Compile Include="Repositorios\IUsuarioRepositorio.cs" />
     <Compile Include="Servicos\PalavraServico.cs" />
+    <Compile Include="Servicos\UsuarioServico.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

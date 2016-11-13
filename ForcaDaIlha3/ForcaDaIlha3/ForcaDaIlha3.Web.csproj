@@ -319,6 +319,10 @@
       <Project>{CDEFB274-2AAE-4EC1-B917-AE9A7B57C5AF}</Project>
       <Name>ForcaDaIlha3.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Repositorio\ForcaDaIlha3.Repositorio.csproj">
+      <Project>{6FBBAF10-49F5-4754-B302-725F89307D67}</Project>
+      <Name>ForcaDaIlha3.Repositorio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
