@@ -1,0 +1,32 @@
+﻿<form id="form-placar">
+    <div>   
+        <input type='radio' class="radio-inline" name='tipo-placar' value='normal' />
+        <input type='radio' class="radio-inline" name='tipo-placar' value='bh' />
+        <input type="radio" class="radio-inline" name="tipo-placar" value="mesclado"/>
+    </div>
+    <div>
+        <button id="btn-filtrar" type="submit">Filtrar</button>
+    </div>
+</form>
+<div id="normal" class="placar">
+    <ol>
+        {{#each usuario}}
+        <li id="{{ id }}">
+            <span class="nome-usuario">{{ nome }}</span>
+            <span class="pontos">{{ pontos }}</span>
+            <span class="dificuldade">{{ dificuldade }}</span>
+        </li>
+        {{/each}}
+    </ol>
+</div>
+<div id="bh" class="placar">
+    <ol>
+        {{#each usuario}}
+        <li id="{{ id }}">
+            <span class="nome-usuario">{{ nome }}</span>
+            <span class="pontos">{{ pontos }}</span>
+            <span class="dificuldade">{{ dificuldade }}</span>        
+        </li>
+        {{/each}}
+    </ol>
+</div>
