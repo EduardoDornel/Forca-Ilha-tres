@@ -236,6 +236,7 @@
     <Content Include="Scripts\app\telaJogoBH.js" />
     <Content Include="Scripts\app\telaJogoNormal.js" />
     <Content Include="Scripts\app\telaMenu.js" />
+    <Content Include="Scripts\app\telaPlacar.js" />
     <Content Include="Scripts\app\_start.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -307,11 +308,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Static\Templates\tela-placar.tpl.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Jogo\" />
-    <Folder Include="Views\LeaderBoard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -19,6 +19,8 @@ forca.renderizarTela = function (nome) {
         case 'bh':
             new TelaJogoBH('#tela-jogo');
             break;
+        case 'placar':
+            new TelaPlacar('#tela-placar');
     }
 
 }

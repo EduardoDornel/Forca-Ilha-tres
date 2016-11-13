@@ -4,6 +4,7 @@
 /// <reference path="app/telajogobh.js" />
 /// <reference path="app/telajogonormal.js" />
 /// <reference path="app/telamenu.js" />
+/// <reference path="app/telaplacar.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="handlebars.amd.min.js" />
 /// <reference path="handlebars.min.js" />
