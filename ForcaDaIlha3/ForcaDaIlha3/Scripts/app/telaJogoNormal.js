@@ -24,5 +24,6 @@
 
     renderizarEstadoInicial() {
         this.$elem.show();
+        forca.render('.tela', 'tela-jogo');
     }
 }
