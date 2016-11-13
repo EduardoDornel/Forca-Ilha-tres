@@ -45,9 +45,22 @@ namespace ForcaDaIlha3.Repositorio.Repositorios
                 {
                     return contexto.Usuario.OrderBy(p => p.PontuacaoBH).Skip((pulo-1)*5).Take(5).ToList();
                 }
-                else
+                else if(filtro == "Normal")
                 {
                     return contexto.Usuario.OrderBy(p => p.PontuacaoNormal).Skip((pulo-1)*5).Take(5).ToList();
+                }
+                else
+                {
+                    List<Usuario> usuarios = new List<Usuario>();
+                    usuarios.AddRange(contexto.Usuario.ToList());
+
+                    List<object> listaComPontuacoesSeparadas = new List<object>();
+                    foreach (var usuario in usuarios)
+                    {
+                        listaComPontuacoesSeparadas.Add(new { Nome = usuario.Nome, Pontuacao = usuario.PontuacaoNormal });
+                        listaComPontuacoesSeparadas.Add(new { Nome = usuario.Nome, Pontuacao = usuario.PontuacaoBH });
+                    }
+                 //   return listaComPontuacoesSeparadas.OrderBy(p => p.Nome);
                 }
             }
         }
