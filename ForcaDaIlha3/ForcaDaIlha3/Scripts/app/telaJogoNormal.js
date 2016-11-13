@@ -10,7 +10,7 @@
         //registra o evento de pressionar uma tecla
         document.onkeypress = function (evento) {
             var tecla = teclaPressionada(evento);
-            var alfabeto = 'abcdefghijklmnopqrstuvwxyzç';
+            var alfabeto = 'abcdefghijklmnopqrstuvwxyz';
         };
 
         //recebe um evento de tecla pressionada e retorna o valor da tecla pressionada
