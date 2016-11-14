@@ -22,7 +22,7 @@
         self.$divDica = $('#dica');
         self.$btnPalpitar = $('#btn-palpitar-palavra');
         self.$btnReiniciar.on('click', self.reiniciar.bind(self));
-        self.$btnDica.on('click', self.exibirDica);//self.exibirDica.bind(self)
+        self.$btnDica.on('click', self.exibirDica.bind(self));
         self.$btnPalpitar.on('click', self.palpitar.bind(self));
         //registra o evento de pressionar uma tecla
         document.onkeypress = function (evento) {
@@ -47,12 +47,11 @@
         clearInterval(this.intervalo);
     }
     exibirDica() {
-        console.log(self.dica)
-        /*self.$btnDica.prop("disabled", true);
-        self.$divDica.append("<h2>" + self.dica + "</h2>");
+        this.$btnDica.prop("disabled", true);
+        this.$divDica.append("<h2>" + this.dica + "</h2>");
         setTimeout(function () {
-            self.$divDica.html("");
-        }, 1000);*/
+            this.$divDica.html();
+        }, 1000);
     }
     registrarJogada(jogada) {
         if(this.palavraDaJogada.indexOf(jogada) != -1){

@@ -9,7 +9,7 @@
     registrarBindsEventos() {
         this.$formLogin = $('#formLogin');
         this.$btnSubmit = $('#btn-comecar');
-        this.$btnLeaderboard = $('#btn-leaderboard');
+        this.$btnLeaderboard = $('#btn-placar');
         this.$btnLeaderboard.on('click', this.renderizarLeaderboard);
         var self = this;
         let validator = self.$formLogin.validate({
