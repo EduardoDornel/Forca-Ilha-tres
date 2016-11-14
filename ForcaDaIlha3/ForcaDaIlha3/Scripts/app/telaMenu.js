@@ -24,6 +24,7 @@
         $.get('/api/jogo', { nome: nome })
             .done(function (res) {
                 window.localStorage.setItem('id-usuario', res.dados);
+                window.localStorage.setItem('pontuacao', 0);
                 self.carregarJogo(self);
             })
     }

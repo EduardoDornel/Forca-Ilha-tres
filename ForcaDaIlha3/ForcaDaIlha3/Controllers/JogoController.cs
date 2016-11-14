@@ -45,13 +45,19 @@ namespace ForcaDaIlha3.Web.Controllers
             var idUsuario = usuarioServico.IdPorNome(nome);
             return Ok(new{ dados = idUsuario });
         }
-        [ResponseType(typeof(Palavra))]
-        public IHttpActionResult GetPalavra(List<int> idsDoLocalStorage)
+        public IHttpActionResult PostCadastrarPontuacao(Pontuacao novaPontuacao)
         {
-            Palavra palavra = EncontrarPalavra(idsDoLocalStorage);            
-            return Ok(palavra);
+            PontuacaoServico pontuacaoServico = ServicoDeDependencia.MontarPontuacaoServico();
+            pontuacaoServico.Pontuar(novaPontuacao);
+            return Ok();
         }
-        
+        [ResponseType(typeof(Palavra))]
+        public IHttpActionResult PostPalavra(List<int> idsDoLocalStorage)
+        {
+            Palavra palavraDaRodada = EncontrarPalavra(idsDoLocalStorage);            
+            return Ok(new { palavra = palavraDaRodada, ids = this.idsAtualizados });
+        }
+        private List<int> idsAtualizados;
         private Palavra EncontrarPalavra(List<int> idsDoLocalStorage)
         {
             PalavraServico palavraServico = ServicoDeDependencia.MontarPalavraServico();                                    
@@ -61,6 +67,7 @@ namespace ForcaDaIlha3.Web.Controllers
 
             Palavra palavra = palavraServico.PalavraRepositorio.PalavraPorId(idsDoLocalStorage[0]);
             idsDoLocalStorage.RemoveAt(0);
+            this.idsAtualizados = idsDoLocalStorage;
 
             return palavra;
         }

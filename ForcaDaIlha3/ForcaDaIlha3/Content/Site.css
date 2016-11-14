@@ -98,6 +98,8 @@ footer{
 .campo-letra{
     display: inline-block;
     border-bottom: 3px #000000 solid;
+    width: 20px;
+    height: 66px;
 }
 .campo-letra > h1{
     font-size: 30px;
@@ -109,6 +111,7 @@ footer{
 }
 .dificuldade{
     display: inline-block;
+    width: auto;
 }
 .letras-erradas{
     float: left;

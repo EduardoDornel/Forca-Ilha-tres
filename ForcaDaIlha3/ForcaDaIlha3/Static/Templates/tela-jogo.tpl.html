@@ -8,9 +8,15 @@
 <div class="conteudo">
     <div class="palavra">
         {{#each letras}}
-        <div class="campo-letra">
-            <h1>A</h1>
-        </div>
+            {{#if espaco}}
+                <div class="campo-espaco"></div>
+            {{else}}
+                {{#if traco}}
+                    <div class="campo-espaco">-</div>
+                {{else}}
+                    <div id="letra{{id}}" class="campo-letra"></div>
+                {{/if}}
+            {{/if}} 
         {{/each}}
     </div>
 </div>
