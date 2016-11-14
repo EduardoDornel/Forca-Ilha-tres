@@ -67,7 +67,7 @@ namespace ForcaDaIlha3.Web.Controllers
             PalavraServico palavraServico = ServicoDeDependencia.MontarPalavraServico();                                    
             
             Random random = new Random();
-            idsDoLocalStorage.OrderBy(_ => random.Next());
+            idsDoLocalStorage = Embaralhar(idsDoLocalStorage);
 
             Palavra palavra = palavraServico.PalavraRepositorio.PalavraPorId(idsDoLocalStorage[0]);
             idsDoLocalStorage.RemoveAt(0);
@@ -76,6 +76,20 @@ namespace ForcaDaIlha3.Web.Controllers
             return palavra;
         }
 
+        private List<int> Embaralhar(List<int> idsDoLocalStorage)
+        {
+            Random rng = new Random();
+            int numero = idsDoLocalStorage.Count;
+            while(numero > 1)
+            {
+                numero--;
+                int random = rng.Next(numero + 1);
+                int valor = idsDoLocalStorage[random];
+                idsDoLocalStorage[random] = idsDoLocalStorage[numero];
+                idsDoLocalStorage[numero] = valor;
+            }
+            return idsDoLocalStorage;
+        }
 
     }
 }
