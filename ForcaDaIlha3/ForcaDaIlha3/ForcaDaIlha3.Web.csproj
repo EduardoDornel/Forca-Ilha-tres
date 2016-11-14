@@ -233,8 +233,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\forca.js" />
+    <Content Include="Scripts\app\telaAviso.js" />
     <Content Include="Scripts\app\telaJogoBH.js" />
     <Content Include="Scripts\app\telaJogoNormal.js" />
+    <Content Include="Scripts\app\telaLeaderboard.js" />
     <Content Include="Scripts\app\telaMenu.js" />
     <Content Include="Scripts\app\telaPlacar.js" />
     <Content Include="Scripts\app\_start.js" />
@@ -293,6 +295,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Static\Templates\tela-aviso.tpl.html" />
     <Content Include="Static\Templates\tela-jogo.tpl.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

@@ -121,6 +121,11 @@ footer{
     font-size: 30px;
     text-align: center;
 }
+.campo-espaco{
+    display: inline-block;
+    width: 20px;
+    height: 66px;
+}
 .conteudo{
     float: left;
     margin-top: 15%;

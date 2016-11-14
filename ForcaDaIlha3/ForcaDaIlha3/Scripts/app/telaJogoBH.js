@@ -8,7 +8,6 @@
         this.palavraDaJogada = "";
         this.quantidadeDeLetras = 0;
         this.$elem = $(seletor);
-        this.registrarBindsEventos(this);
         this.renderizarEstadoInicial();
     }
 
@@ -112,6 +111,8 @@
             pontuacao: window.localStorage.getItem('pontuacao'),
             letras: listaDeLetras,
             dificuldade: 'BH'
+        }).then(() => {
+            self.registrarBindsEventos(self)
         });
     }
 

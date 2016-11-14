@@ -1,14 +1,21 @@
-No modo bh, o jogador possui 20 segundos para adivinhar cada letra (se este timer estourar é Game Over, a cada letra o timer é resetado).
-Implemente uma forma do usuário "palpitar" a palavra. Caso ele erre, o jogo acaba (Game Over). Caso o usuário acerte o palpite, o jogo incrementa a pontuação em 2 e não 1.
-O jogo ainda deve ter uma tela "Leaderboard" para listar todas as jogadas realizadas até então (posição no ranking, usuário, suas pontuação e a respectiva dificuldade da jogada). Esta listagem deve estar ordenada de forma descendente por pontuação. Deve ser possível paginar os resultados de 5 em 5 registros e filtrar por dificuldade.
-Todos erros de comunicação (AJAX) devem ser logados no console do navegador.
+(JS)No modo bh, o jogador possui 20 segundos para adivinhar cada letra (se este timer estourar é Game Over, a cada letra o timer é resetado).
+(JS)Implemente uma forma do usuário "palpitar" a palavra. Caso ele erre, o jogo acaba (Game Over). 
+	Caso o usuário acerte o palpite, o jogo incrementa a pontuação em 2 e não 1.
+(JS)O jogo ainda deve ter uma tela "Leaderboard" para listar todas as jogadas realizadas até então (posição no ranking, usuário, 
+	suas pontuação e a respectiva dificuldade da jogada). Esta listagem deve estar ordenada de forma descendente por pontuação. 
+	Deve ser possível paginar os resultados de 5 em 5 registros e filtrar por dificuldade.
+(JS)Todos erros de comunicação (AJAX) devem ser logados no console do navegador.
 Implemente no mínimo 2 novas funcionalidades que envolva comunicação cliente(navegador) / servidor. Sejam criativos!
-- refatorar telas de jogo .js criando classe Jogo e fazendo JogoBH e JogoNormal extenderem ela (NÃO FAZER)
-- implementar açoes nos botões do jogo:
+(JS)- refatorar telas de jogo .js criando classe Jogo e fazendo JogoBH e JogoNormal extenderem ela (NÃO FAZER)
+(JS)- implementar açoes nos botões do jogo:
 	- reiniciar (o metodo já existe, só precisa fazer a ação de click)
 	- exibir dica (o metodo já existe, só precisa fazer a ação de click e desativar no modo BH)
 	- palpitar (fazer o metodo que exiba um campo para o palpite e comprar o valor deste campo com a palavra)
 - funcionalidades bh (o que está listado antes dos tópicos com "-")
-- quando termina as palavras ganha (ao acertar todas as palavras, aparece tela de vitoria)
-- quando da game over (ao dar game over, tem que aparecer uma tela de derrota por um tempo antes de reiniciar)
-- consertar randomizador de ids que retorna o array igual
+(JS)- quando termina as palavras ganha (ao acertar todas as palavras, aparece tela de vitoria)
+(JS)- quando da game over (ao dar game over, tem que aparecer uma tela de derrota por um tempo antes de reiniciar)
+(C#)- consertar randomizador de ids que retorna o array igual
+(HTML/CSS/JS)- colocar botão na tela inicial para abrir a tela de leaderboard
+(JS)- fazer telaLeaderboard.js
+(JS)- fazer telaAviso.js
+(HTML/CSS)- fazer fundo escuro no modo BH
