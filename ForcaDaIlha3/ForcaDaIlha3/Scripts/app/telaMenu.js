@@ -23,7 +23,7 @@
     }
 
     verificarUsuario(self) {
-        var nome = $('#nome-player').val();
+      var nome = $('#nome-player').val();
         $.get('/api/jogo', { nome: nome })
             .done(function (res) {
                 window.localStorage.setItem('id-usuario', res.dados);
