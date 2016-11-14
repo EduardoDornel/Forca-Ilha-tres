@@ -10,10 +10,6 @@
         this.quantidadeDeLetras = 0;
         this.$elem = $(seletor);
         this.renderizarEstadoInicial();
-        this.intervalo = window.setInterval(lerolero, 5000);
-        function lerolero() {
-            console.log("time out");
-        }
     }
 
     registrarBindsEventos(self) {
@@ -44,14 +40,13 @@
         
     }
     palpitar() {
-        clearInterval(this.intervalo);
     }
     exibirDica() {
         this.$btnDica.prop("disabled", true);
-        this.$divDica.append("<h2>" + this.dica + "</h2>");
+        this.$divDica.append("<h2 id=\"dica-temporaria\">" + this.dica + "</h2>");
         setTimeout(function () {
-            this.$divDica.html();
-        }, 1000);
+            $("#dica-temporaria").remove();
+        }, 2000);
     }
     registrarJogada(jogada) {
         if(this.palavraDaJogada.indexOf(jogada) != -1){
