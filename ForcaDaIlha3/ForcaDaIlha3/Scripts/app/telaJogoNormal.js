@@ -9,7 +9,6 @@
         this.dica = "";
         this.quantidadeDeLetras = 0;
         this.$elem = $(seletor);
-        this.registrarBindsEventos(this);
         this.renderizarEstadoInicial();
     }
 
@@ -19,7 +18,7 @@
         self.$divDica = $('#dica');
         self.$btnPalpitar = $('#btn-palpitar-palavra');
         self.$btnReiniciar.on('click', self.reiniciar.bind(self));
-        self.$btnDica.on('click', self.exibirDica.bind(self));
+        self.$btnDica.on('click', self.exibirDica);//self.exibirDica.bind(self)
         self.$btnPalpitar.on('click', self.palpitar.bind(self));
         //registra o evento de pressionar uma tecla
         document.onkeypress = function (evento) {
@@ -44,11 +43,12 @@
 
     }
     exibirDica(self) {
-        self.$btnDica.prop("disabled", true);
+        console.log(self.dica)
+        /*self.$btnDica.prop("disabled", true);
         self.$divDica.append("<h2>" + self.dica + "</h2>");
         setTimeout(function () {
             self.$divDica.html("");
-        }, 1000);
+        }, 1000);*/
     }
     registrarJogada(jogada) {
         if(this.palavraDaJogada.indexOf(jogada) != -1){
@@ -123,7 +123,8 @@
             pontuacao: window.localStorage.getItem('pontuacao'),
             letras: listaDeLetras,
             dificuldade: 'NORMAL'
-        });
+        }).then(
+        self.registrarBindsEventos(self));
     }
 
     reiniciar() {

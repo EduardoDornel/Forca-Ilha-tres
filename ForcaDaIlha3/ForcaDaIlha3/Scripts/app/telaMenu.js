@@ -4,6 +4,12 @@
         this.$elem = $(seletor);
         this.registrarBindsEventos();
         this.renderizarEstadoInicial();
+        var intervalo = window.setInterval(lerolero, 1000);
+        function lerolero() {
+            window.alert("Popup");
+        }
+        
+        clearInterval(intervalo);
     }
 
     registrarBindsEventos() {

@@ -18,16 +18,13 @@
         self.$divDica = $('#dica');
         self.$btnPalpitar = $('#btn-palpitar-palavra');
         self.$btnReiniciar.on('click', self.reiniciar.bind(self));
-        self.$btnDica.on('click', self.exibirDica.bind(self));
+        self.$btnDica.prop('disable', true);
         self.$btnPalpitar.on('click', self.palpitar.bind(self));
         //registra o evento de pressionar uma tecla
         document.onkeypress = function (evento) {
             let tecla = teclaPressionada(evento);
-            let alfabeto = 'abcdefghijklmnopqrstuvwxyz';
-            if (alfabeto.indexOf(tecla) != -1) {
-                if (self.letrasErradas.indexOf(tecla) == -1 && self.letrasAcertadas.indexOf(tecla) == -1) {
-                    self.registrarJogada(tecla);
-                }
+            if (self.letrasErradas.indexOf(tecla) == -1 && self.letrasAcertadas.indexOf(tecla) == -1) {
+                self.registrarJogada(tecla);
             }
         }
 
