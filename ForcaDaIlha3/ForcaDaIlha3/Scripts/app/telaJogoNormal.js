@@ -9,13 +9,18 @@
         this.dica = "";
         this.quantidadeDeLetras = 0;
         this.$elem = $(seletor);
-        this.registrarBindsEventos();
+        this.registrarBindsEventos(this);
         this.renderizarEstadoInicial();
     }
 
-    registrarBindsEventos() {
-        this.$textoErro = $('#error');
-        var self = this;
+    registrarBindsEventos(self) {
+        self.$btnReiniciar = $('#btn-reiniciar-jogo');
+        self.$btnDica = $('#btn-reiniciar-jogo');
+        self.$divDica = $('#dica');
+        self.$btnPalpitar = $('#btn-palpitar-palavra');
+        self.$btnReiniciar.on('click', self.reiniciar.bind(self));
+        self.$btnDica.on('click', self.exibirDica.bind(self));
+        self.$btnPalpitar.on('click', self.palpitar.bind(self));
         //registra o evento de pressionar uma tecla
         document.onkeypress = function (evento) {
             let tecla = teclaPressionada(evento);
@@ -24,11 +29,6 @@
                 if (self.letrasErradas.indexOf(tecla) == -1 && self.letrasAcertadas.indexOf(tecla) == -1) {
                     self.registrarJogada(tecla);
                 }
-            } else {
-                self.$textoErro.html("Insira somente letras!");
-                setTimeout(function () {
-                    self.$textoErro.html();
-                }, 1000);
             }
         }
 
@@ -40,7 +40,16 @@
         }
         
     }
+    palpitar() {
 
+    }
+    exibirDica(self) {
+        self.$btnDica.prop("disabled", true);
+        self.$divDica.append("<h2>" + self.dica + "</h2>");
+        setTimeout(function () {
+            self.$divDica.html("");
+        }, 1000);
+    }
     registrarJogada(jogada) {
         if(this.palavraDaJogada.indexOf(jogada) != -1){
             for (let i = 0; i < this.palavraDaJogada.length; i++) {
