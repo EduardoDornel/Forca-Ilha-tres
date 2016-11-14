@@ -1,9 +1,10 @@
 ﻿html,body{height: 100%;}
+
 body{ 
     background:-webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
     background:-moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);  
     background:radial-gradient( center center,circle cover,#078ABE, #0D343A); 
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
 } 
 
 /* Set padding to keep content from hitting the edges */
@@ -159,16 +160,24 @@ footer{
 }
 
 div > h1{
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
     color: cyan;
 }
 
 .form-group > h2{
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
     margin-left: 12%;
     font-size: 40px;
 }
 
 section{
     margin-left: -20px;
+}
+
+#container-botao-entrar{
+    right: 210px;
+}
+
+#btn-placar{
+    margin: 10px;
 }
