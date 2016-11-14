@@ -1,11 +1,23 @@
-﻿html,body{height: 100%;}
+﻿html, body {
+    height: 100%;
+}
 
-body{ 
-    background:-webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
-    background:-moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);  
-    background:radial-gradient( center center,circle cover,#078ABE, #0D343A); 
+@font-face {
+    font-family: "AlphaRope";
+    src: url("/Content/Fonts/beeline_alpharope/AlphaRope.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "gothic";
+    src: url("/Content/Fonts/gothic/gothic.ttf") format("truetype");
+}
+
+body {
+    background: -webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
+    background: -moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);
+    background: radial-gradient( center center,circle cover,#078ABE, #0D343A);
     font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
-} 
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -20,42 +32,42 @@ textarea {
     max-width: 280px;
 }
 
-#btn-reiniciar-jogo{
+#btn-reiniciar-jogo {
     background-color: white;
     color: darkblue;
 }
 
-#btn-palpitar-palavra{
+#btn-palpitar-palavra {
     background-color: white;
     color: darkblue;
 }
 
-#btn-dica{
+#btn-dica {
     background-color: white;
     color: darkblue;
 }
 
 .formulario-centralizado {
-  text-align: center;
+    text-align: center;
 }
 
 .formulario-centralizado--top {
-  align-self: flex-start;
+    align-self: flex-start;
 }
 
 .formulario-centralizado--bottom {
-  align-self: flex-end;
+    align-self: flex-end;
 }
 
 .radio-button {
-	display: none;
+    display: none;
 }
 
-.radio-button:checked + section {
-	display: inline-block;
-}
+    .radio-button:checked + section {
+        display: inline-block;
+    }
 
-.section-dificuldade{
+.section-dificuldade {
     display: none;
     height: 100%;
     color: white;
@@ -63,121 +75,162 @@ textarea {
     margin: auto;
 }
 
-.section-dificuldade > h1{
-    display: inline-block;
-	margin-bottom: 0;
-	font-weight: lighter;
-	font-size: 30px;
-    margin: 0px;
-}
+    .section-dificuldade > h1 {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: lighter;
+        font-size: 30px;
+        margin: 0px;
+    }
 
-.section-dificuldade > label{
-	display: inline-block;
-	cursor: pointer;
-	font-size: 25px;
-}
+    .section-dificuldade > label {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 25px;
+    }
 
-.section-dificuldade label:first-child{
-	margin-left: 100px;
-}
+    .section-dificuldade label:first-child {
+        margin-left: 100px;
+    }
 
-#tela-menu{
+#tela-menu {
     margin: 100px auto;
     width: 500px;
 }
 
-.pontuacao{
+.pontuacao {
     display: inline-block;
     float: right;
     margin: 30px 5px 0;
     font-size: 15px;
 }
-.pontuacao > h2{
-    margin: 0;
-}
 
-header{
+    .pontuacao > h2 {
+        margin: 0;
+    }
+
+header {
     height: 100%;
     width: 100%;
 }
 
-footer{
+footer {
     position: absolute;
     bottom: 3px;
     width: 83%;
 }
 
-.btn-jogo{
+.btn-jogo {
     float: right;
     margin: 30px 5px 0;
     font-size: 15px;
 }
-.campo-letra{
+
+.campo-letra {
     display: inline-block;
     border-bottom: 3px #000000 solid;
     width: 20px;
     height: 66px;
 }
-.campo-letra > h1{
-    font-size: 30px;
-    text-align: center;
-}
-.campo-espaco{
+
+    .campo-letra > h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+.campo-espaco {
     display: inline-block;
     width: 20px;
     height: 66px;
 }
-.conteudo{
+
+.conteudo {
     float: left;
     margin-top: 15%;
     width: 100%;
     text-align: center;
 }
-.dificuldade{
+
+.dificuldade {
     display: inline-block;
     width: auto;
     color: white;
 }
-.letras-erradas{
+
+.letras-erradas {
     float: left;
     margin-top: 160px;
     margin-right: 20px;
     float: right;
     color: red;
 }
-.letras-erradas > h2{
-    display: inline-block;
-    margin-left: 10px;
-}
-.palavra{
+
+    .letras-erradas > h2 {
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+.palavra {
     margin: auto;
     color: white;
     font-family: "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }
 
-.palavra:first-child{
-    font-size: 8px;
-}
+    .palavra:first-child {
+        font-size: 8px;
+    }
 
-div > h1{
+div > h1 {
     font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
     color: cyan;
 }
 
-.form-group > h2{
+.form-group > h2 {
     font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
     margin-left: 12%;
     font-size: 40px;
 }
 
-section{
+section {
     margin-left: -20px;
 }
 
-#container-botao-entrar{
+#container-botao-entrar {
     right: 210px;
 }
 
-#btn-placar{
+#btn-placar {
     margin: 10px;
+    margin-left: 200px;
+}
+
+.gothic-font {
+    font-family: "gothic";
+    font-size: 45px;
+    text-align: center;
+}
+
+#dica {
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+#mensagem-fim {
+    margin-top: 100px;
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+#container-botao-jogar-novamente {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+#container-botao-voltar-inicio {
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+    float: left;
 }

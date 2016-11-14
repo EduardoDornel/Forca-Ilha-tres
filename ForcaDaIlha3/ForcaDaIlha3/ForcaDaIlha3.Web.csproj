@@ -271,6 +271,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="App_Readme\Handlebarsjs_README.md" />
     <Content Include="App_Readme\Handlebarsjs_LICENSE" />
+    <Content Include="Content\Fonts\beeline_alpharope\AlphaRope.ttf" />
+    <Content Include="Content\Fonts\gothic\gothic.ttf" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\fontaewsome.js" />
     <Content Include="Scripts\handlebars.amd.js" />
@@ -316,7 +318,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Fonts\" />
     <Folder Include="Views\Jogo\" />
   </ItemGroup>
   <ItemGroup>
