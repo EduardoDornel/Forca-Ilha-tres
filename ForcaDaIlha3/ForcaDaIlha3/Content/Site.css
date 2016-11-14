@@ -3,6 +3,7 @@ body{
     background:-webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
     background:-moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);  
     background:radial-gradient( center center,circle cover,#078ABE, #0D343A); 
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 } 
 
 /* Set padding to keep content from hitting the edges */
@@ -133,7 +134,7 @@ footer{
 }
 .letras-erradas{
     float: left;
-    margin-top: 200px;
+    margin-top: 160px;
     margin-right: 20px;
     float: right;
     color: red;
@@ -145,6 +146,16 @@ footer{
 .palavra{
     margin: auto;
     color: white;
+    font-family: "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+.palavra:first-child{
+    font-size: 8px;
+}
+
+div > h1{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    color: cyan;
 }
 
 .form-group > h2{

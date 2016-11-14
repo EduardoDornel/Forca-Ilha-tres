@@ -3,7 +3,6 @@ Implemente uma forma do usuário "palpitar" a palavra. Caso ele erre, o jogo acab
 O jogo ainda deve ter uma tela "Leaderboard" para listar todas as jogadas realizadas até então (posição no ranking, usuário, suas pontuação e a respectiva dificuldade da jogada). Esta listagem deve estar ordenada de forma descendente por pontuação. Deve ser possível paginar os resultados de 5 em 5 registros e filtrar por dificuldade.
 Todos erros de comunicação (AJAX) devem ser logados no console do navegador.
 Implemente no mínimo 2 novas funcionalidades que envolva comunicação cliente(navegador) / servidor. Sejam criativos!
-- bug css de centralização da palavra durante o jogo
 - refatorar telas de jogo .js criando classe Jogo e fazendo JogoBH e JogoNormal extenderem ela (NÃO FAZER)
 - implementar açoes nos botões do jogo:
 	- reiniciar (o metodo já existe, só precisa fazer a ação de click)
