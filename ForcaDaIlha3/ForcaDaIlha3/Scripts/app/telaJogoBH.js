@@ -9,8 +9,8 @@
         this.quantidadeDeLetras = 0;
         this.$elem = $(seletor);
         this.renderizarEstadoInicial();
+        this.timer;
     }
-
     registrarBindsEventos(self) {
         self.$btnReiniciar = $('#btn-reiniciar-jogo');
         self.$btnDica = $('#btn-reiniciar-jogo');
@@ -33,19 +33,26 @@
             let tecla = evento.keyCode || evento.which;
             return String.fromCharCode(tecla);
         }
-
+        self.iniciarTimer();
+    }
+    iniciarTimer() {
+        this.timer = window.setInterval(this.registrarJogada(null), 5000);
     }
     palpitar() {
 
     }
     registrarJogada(jogada) {
-        if (this.palavraDaJogada.indexOf(jogada) != -1) {
-            for (let i = 0; i < this.palavraDaJogada.length; i++) {
-                let letraAtual = this.palavraDaJogada.substring(i, i + 1);
-                if (letraAtual === jogada) {
-                    $('#letra' + i).append("<h2>" + jogada.toUpperCase() + "</h2>");
-                    this.acertos++;
-                    this.letrasAcertadas += jogada;
+        clearInterval(this.timer);
+        if (jogada !== null) {
+            if(this.palavraDaJogada.indexOf(jogada) != -1)
+            {
+                for (let i = 0; i < this.palavraDaJogada.length; i++) {
+                    let letraAtual = this.palavraDaJogada.substring(i, i + 1);
+                    if (letraAtual === jogada) {
+                        $('#letra' + i).append("<h2>" + jogada.toUpperCase() + "</h2>");
+                        this.acertos++;
+                        this.letrasAcertadas += jogada;
+                    }
                 }
             }
             if (this.acertos === this.quantidadeDeLetras) {
@@ -56,10 +63,13 @@
                 this.gameOver(this);
             } else {
                 this.erros++;
-                this.letrasErradas += jogada;
-                $('.letras-erradas').append("<h2>" + jogada.toUpperCase() + "</h2>");
+                if(jogada !== null){
+                    this.letrasErradas += jogada;
+                    $('.letras-erradas').append("<h2>" + jogada.toUpperCase() + "</h2>");
+                }
             }
         }
+        this.iniciarTimer();
     }
 
     gameOver(self) {

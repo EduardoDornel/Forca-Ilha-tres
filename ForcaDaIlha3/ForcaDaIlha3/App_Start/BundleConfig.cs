@@ -13,7 +13,8 @@ namespace ForcaDaIlha3
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.unobtrusive*",
-                "~/Scripts/jquery.validate*"));
+                "~/Scripts/jquery.validate*",
+                "~/Scripts/jquery.valodator.pt.br.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/handlebars").Include(
                "~/Scripts/handlebars.js"));

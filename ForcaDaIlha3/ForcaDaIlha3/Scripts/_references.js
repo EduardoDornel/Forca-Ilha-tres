@@ -15,6 +15,7 @@
 /// <reference path="handlebars.runtime.min.js" />
 /// <reference path="jquery.validate.min.js" />
 /// <reference path="jquery.validate.unobtrusive.js" />
+/// <reference path="jquery.validator.pt.br.js" />
 /// <reference path="jquery-3.1.1.js" />
 /// <reference path="jquery-3.1.1.min.js" />
 /// <reference path="jquery-3.1.1.slim.min.js" />
