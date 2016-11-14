@@ -56,7 +56,7 @@
             }
         } else {
             if(this.erros == 4){
-                this.gameOver();
+                this.gameOver(this);
             }else{
                 this.erros++;
                 this.letrasErradas += jogada;
@@ -65,9 +65,13 @@
         }
     }
 
-    gameOver() {
+    gameOver(self) {
         let pontuacao = window.localStorage.getItem('pontuacao');
         let idUsuario = window.localStorage.getItem('id-usuario');
+        $.get('/api/jogo', { pontos: pontuacao, idUsuario: idUsuario, dificuldade: 'normal' })
+            .done(function (res) {
+                self.reiniciar();
+            })
     }
 
     ganhou() {
@@ -93,7 +97,7 @@
                 self.renderizarPalavra(self);
             },
             error: function (jqXHR, exception) {
-                alert('Error message.');
+                alert('Falha ao resgatar palavra!');
             }
         });
     }
@@ -111,6 +115,15 @@
             letras: listaDeLetras,
             dificuldade: 'NORMAL'
         });
+    }
+
+    reiniciar() {
+        $.get('/api/jogo', { dificuldade: 'normal' })
+            .done(function (res) {
+                window.localStorage.setItem('pontuacao', 0);
+                window.localStorage.setItem('ids-palavras', JSON.stringify(res.dados));
+                forca.renderizarTela('normal');
+            });
     }
 
     renderizarEstadoInicial() {

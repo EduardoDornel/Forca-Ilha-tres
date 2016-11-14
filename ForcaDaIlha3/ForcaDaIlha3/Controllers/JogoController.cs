@@ -45,17 +45,21 @@ namespace ForcaDaIlha3.Web.Controllers
             var idUsuario = usuarioServico.IdPorNome(nome);
             return Ok(new{ dados = idUsuario });
         }
-        public IHttpActionResult PostCadastrarPontuacao(Pontuacao novaPontuacao)
+        public IHttpActionResult GetCadastrarPontuacao(int pontos, int idUsuario, string dificuldade)
         {
+            Pontuacao pontuacao = new Pontuacao();
+            pontuacao.QuantidadePontos = pontos;
+            pontuacao.UsuarioId = idUsuario;
+            pontuacao.Dificuldade = dificuldade;
             PontuacaoServico pontuacaoServico = ServicoDeDependencia.MontarPontuacaoServico();
-            pontuacaoServico.Pontuar(novaPontuacao);
-            return Ok();
+            pontuacaoServico.Pontuar(pontuacao);
+            return Ok("funcionou");
         }
         [ResponseType(typeof(Palavra))]
         public IHttpActionResult PostPalavra(List<int> idsDoLocalStorage)
         {
             Palavra palavraDaRodada = EncontrarPalavra(idsDoLocalStorage);            
-            return Ok(new { palavra = palavraDaRodada, ids = this.idsAtualizados });
+            return CreatedAtRoute("DefaultApi", new { id = palavraDaRodada.Id }, new { palavra = palavraDaRodada, ids = this.idsAtualizados });
         }
         private List<int> idsAtualizados;
         private Palavra EncontrarPalavra(List<int> idsDoLocalStorage)
