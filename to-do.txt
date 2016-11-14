@@ -11,3 +11,4 @@ Implemente no mínimo 2 novas funcionalidades que envolva comunicação cliente(nav
 - funcionalidades bh (o que está listado antes dos tópicos com "-")
 - quando termina as palavras ganha (ao acertar todas as palavras, aparece tela de vitoria)
 - quando da game over (ao dar game over, tem que aparecer uma tela de derrota por um tempo antes de reiniciar)
+- consertar randomizador de ids que retorna o array igual
