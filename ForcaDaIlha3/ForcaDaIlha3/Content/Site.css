@@ -18,6 +18,21 @@ textarea {
     max-width: 280px;
 }
 
+#btn-reiniciar-jogo{
+    background-color: white;
+    color: darkblue;
+}
+
+#btn-palpitar-palavra{
+    background-color: white;
+    color: darkblue;
+}
+
+#btn-dica{
+    background-color: white;
+    color: darkblue;
+}
+
 .formulario-centralizado {
   text-align: center;
 }
@@ -109,16 +124,19 @@ footer{
     float: left;
     margin-top: 15%;
     width: 100%;
+    text-align: center;
 }
 .dificuldade{
     display: inline-block;
     width: auto;
+    color: white;
 }
 .letras-erradas{
     float: left;
     margin-top: 200px;
     margin-right: 20px;
     float: right;
+    color: red;
 }
 .letras-erradas > h2{
     display: inline-block;
@@ -126,4 +144,15 @@ footer{
 }
 .palavra{
     margin: auto;
+    color: white;
+}
+
+.form-group > h2{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    margin-left: 12%;
+    font-size: 40px;
+}
+
+section{
+    margin-left: -20px;
 }
