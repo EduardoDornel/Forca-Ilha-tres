@@ -3,13 +3,15 @@
     constructor(seletor) {
         this.$elem = $(seletor);
         this.renderizarEstadoInicial();
+        this.registrarBindsEventos();
     }
 
-    registrarBindsEventos(self) {
-        self.$formLogin = $('#formLogin');
-        self.$btnSubmit = $('#btn-comecar');
-        self.$btnLeaderboard = $('#btn-leaderboard');
-        self.$btnLeaderboard.on('click', self.renderizarLeaderboard);
+    registrarBindsEventos() {
+        this.$formLogin = $('#formLogin');
+        this.$btnSubmit = $('#btn-comecar');
+        this.$btnLeaderboard = $('#btn-leaderboard');
+        this.$btnLeaderboard.on('click', this.renderizarLeaderboard);
+        var self = this;
         let validator = self.$formLogin.validate({
             submitHandler: function () {
                 self.$btnSubmit.text('Carregando...');
