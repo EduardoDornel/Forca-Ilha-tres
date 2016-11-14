@@ -8,14 +8,11 @@
 Implemente no mínimo 2 novas funcionalidades que envolva comunicação cliente(navegador) / servidor. Sejam criativos!
 (JS)- refatorar telas de jogo .js criando classe Jogo e fazendo JogoBH e JogoNormal extenderem ela (NÃO FAZER)
 (JS)- implementar açoes nos botões do jogo:
-	- reiniciar (o metodo já existe, só precisa fazer a ação de click)
 	- exibir dica (o metodo já existe, só precisa fazer a ação de click e desativar no modo BH)
 	- palpitar (fazer o metodo que exiba um campo para o palpite e comprar o valor deste campo com a palavra)
 - funcionalidades bh (o que está listado antes dos tópicos com "-")
 (JS)- quando termina as palavras ganha (ao acertar todas as palavras, aparece tela de vitoria)
 (JS)- quando da game over (ao dar game over, tem que aparecer uma tela de derrota por um tempo antes de reiniciar)
-(C#)- consertar randomizador de ids que retorna o array igual
-(HTML/CSS/JS)- colocar botão na tela inicial para abrir a tela de leaderboard
 (JS)- fazer telaLeaderboard.js
 (JS)- fazer telaAviso.js
 (HTML/CSS)- fazer fundo escuro no modo BH
