@@ -12,6 +12,7 @@
         this.renderizarEstadoInicial();
     }
     registrarBindsEventos(self) {
+        $('body').addClass('fundo-escuro');
         self.$btnReiniciar = $('#btn-reiniciar-jogo');
         self.$btnDica = $('#btn-dica');
         self.$divUtilitaria = $('#utilitaria');

@@ -19,6 +19,12 @@ body {
     font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
 }
 
+.fundo-escuro {
+    background: -webkit-radial-gradient( center center,circle cover, black, green) !important; 
+    background: -moz-radial-gradient( center center,circle cover, black, green) !important;
+    background: radial-gradient( center center,circle cover, black, green) !important;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
