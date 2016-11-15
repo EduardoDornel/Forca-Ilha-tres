@@ -13,9 +13,10 @@
 }
 
 body {
-    background: -webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
+   /* background: -webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
     background: -moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);
-    background: radial-gradient( center center,circle cover,#078ABE, #0D343A);
+    background: radial-gradient( center center,circle cover,#078ABE, #0D343A);*/
+    background: url(Images/thumbnail_ISLAND.jpg);
     font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
 }
 
@@ -239,4 +240,25 @@ section {
     text-align: center;
     width: 100%;
     float: left;
+}
+
+#div-utilitaria{
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+#input-palpite{
+    display: -webkit-inline-box
+}
+
+#btn-inserir-palpite{
+    display: block;
+    margin: 0 auto; 
+}
+
+.placar{
+    text-align: center;
+    margin: 0 auto;
+    display: table;
 }
