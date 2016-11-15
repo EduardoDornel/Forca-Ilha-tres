@@ -15,7 +15,7 @@
     registrarBindsEventos(self) {
         self.$btnReiniciar = $('#btn-reiniciar-jogo');
         self.$btnDica = $('#btn-dica');
-        self.$divDica = $('#dica');
+        self.$divUtilitaria = $('#div-utilitaria');
         self.$btnPalpitar = $('#btn-palpitar-palavra');
         self.$btnReiniciar.on('click', self.reiniciar.bind(self));
         self.$btnDica.on('click', self.exibirDica.bind(self));
@@ -40,10 +40,12 @@
         
     }
     palpitar() {
+        this.$divUtilitaria.append("<input type=\"text\" id=\"input-palpite\" class=\"form-control\">");
+        this.$divUtilitaria.append("<button id=\"btn-inserir-palpite\" class=\"btn btn-primary\"><\button>");
     }
     exibirDica() {
         this.$btnDica.prop("disabled", true);
-        this.$divDica.append("<h2 id=\"dica-temporaria\">" + this.dica + "</h2>");
+        this.$divUtilitaria.append("<h2 id=\"dica-temporaria\">" + this.dica + "</h2>");
         setTimeout(function () {
             $("#dica-temporaria").remove();
         }, 2000);

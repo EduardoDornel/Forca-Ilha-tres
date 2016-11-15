@@ -8,16 +8,16 @@
         this.palavraDaJogada = "";
         this.quantidadeDeLetras = 0;
         this.$elem = $(seletor);
+        this.timer = null;
         this.renderizarEstadoInicial();
-        this.timer;
     }
     registrarBindsEventos(self) {
         self.$btnReiniciar = $('#btn-reiniciar-jogo');
-        self.$btnDica = $('#btn-reiniciar-jogo');
-        self.$divDica = $('#dica');
+        self.$btnDica = $('#btn-dica');
+        self.$divUtilitaria = $('#utilitaria');
         self.$btnPalpitar = $('#btn-palpitar-palavra');
         self.$btnReiniciar.on('click', self.reiniciar.bind(self));
-        self.$btnDica.prop('disable', true);
+        self.$btnDica.prop('disabled', true);
         self.$btnPalpitar.on('click', self.palpitar.bind(self));
         //registra o evento de pressionar uma tecla
         document.onkeypress = function (evento) {
@@ -33,48 +33,54 @@
             let tecla = evento.keyCode || evento.which;
             return String.fromCharCode(tecla);
         }
-        self.iniciarTimer();
+        //setTimeout(function () {
+            self.iniciarTimer();
+        //}, 5000);
     }
     iniciarTimer() {
-        this.timer = window.setInterval(this.registrarJogada(null), 5000);
+        console.log('chamou timer');
+        var self = this;
+        self.timer = window.setInterval(function () {
+            console.log('time out')
+            self.registrarJogada("");
+        }, 5000);
     }
     palpitar() {
 
     }
     registrarJogada(jogada) {
         clearInterval(this.timer);
-        if (jogada !== null) {
-            if(this.palavraDaJogada.indexOf(jogada) != -1)
-            {
-                for (let i = 0; i < this.palavraDaJogada.length; i++) {
-                    let letraAtual = this.palavraDaJogada.substring(i, i + 1);
-                    if (letraAtual === jogada) {
-                        $('#letra' + i).append("<h2>" + jogada.toUpperCase() + "</h2>");
-                        this.acertos++;
-                        this.letrasAcertadas += jogada;
-                    }
+        if (this.palavraDaJogada.indexOf(jogada) !== -1 && jogada !== "") {
+            for (let i = 0; i < this.palavraDaJogada.length; i++) {
+                let letraAtual = this.palavraDaJogada.substring(i, i + 1);
+                if (letraAtual === jogada) {
+                    $('#letra' + i).append("<h2>" + jogada.toUpperCase() + "</h2>");
+                    this.acertos++;
+                    this.letrasAcertadas += jogada;
                 }
             }
+            this.iniciarTimer();
             if (this.acertos === this.quantidadeDeLetras) {
                 this.ganhou();
             }
         } else {
-            if (this.erros == 1) {
+            if (this.erros === 1) {
                 this.gameOver(this);
             } else {
                 this.erros++;
-                if(jogada !== null){
+                if(jogada !== ""){
                     this.letrasErradas += jogada;
                     $('.letras-erradas').append("<h2>" + jogada.toUpperCase() + "</h2>");
                 }
+                this.iniciarTimer();
             }
         }
-        this.iniciarTimer();
     }
 
     gameOver(self) {
         let pontuacao = window.localStorage.getItem('pontuacao');
         let idUsuario = window.localStorage.getItem('id-usuario');
+        clearInterval(self.timer);
         $.get('/api/jogo', { pontos: pontuacao, idUsuario: idUsuario, dificuldade: 'normal' })
             .done(function (res) {
                 self.reiniciar();
@@ -98,13 +104,12 @@
                 self.palavraDaJogada = res.palavra.texto;
                 console.log(self.palavraDaJogada);
                 self.quantidadeDeLetras = res.palavra.tamanhoDaPalavra;
-                console.log(self.quantidadeDeLetras);
                 self.dica = res.palavra.dica;
                 window.localStorage.setItem('ids-palavras', JSON.stringify(res.ids));
                 self.renderizarPalavra(self);
             },
             error: function (jqXHR, exception) {
-                alert('Falha ao resgatar palavra!');
+                console.log("Falha ao resgatar palavra!");
             }
         });
     }
@@ -116,7 +121,6 @@
             let ehEspaco = letraAtual === " ";
             listaDeLetras.push({ letra: letraAtual, espaco: ehEspaco, traco: ehTraco, id: i });
         }
-        console.log(listaDeLetras);
         forca.render('.tela', 'tela-jogo', {
             pontuacao: window.localStorage.getItem('pontuacao'),
             letras: listaDeLetras,
