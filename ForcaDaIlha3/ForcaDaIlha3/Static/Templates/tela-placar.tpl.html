@@ -1,32 +1,33 @@
-﻿<form id="form-placar">
-    <div>   
-        <input type='radio' class="radio-inline" name='tipo-placar' value='normal' />
-        <input type='radio' class="radio-inline" name='tipo-placar' value='bh' />
-        <input type="radio" class="radio-inline" name="tipo-placar" value="mesclado"/>
-    </div>
-    <div>
-        <button id="btn-filtrar" type="submit">Filtrar</button>
-    </div>
+﻿<form id="form-placar" class="form-horizontal">    
+    <div id="botoes">   
+        <input type='radio' class="radio-inline" name='tipo-placar' id="normal" value='normal' />Normal
+        <input type='radio' class="radio-inline" name='tipo-placar' id="bh" value='bh' /> BH
+        <button type="submit" class="btn btn-primary" id="btn-filtrar">Filtrar</button>
+    </div>    
 </form>
-<div id="normal" class="placar">
-    <ol>
-        {{#each pontuacoes}}
-        <li id="{{ id }}">
-            <span class="nome-usuario">{{ nome }}</span>
-            <span class="pontos">{{ pontos }}</span>
-            <span class="dificuldade">{{ dificuldade }}</span>
-        </li>
-        {{/each}}
-    </ol>
+<div id="placar">
+    <table class="table">
+        <thead id="descricao">
+            <tr>
+                <th>#</th>
+                <th>Nickname</th>
+                <th>Pontos</th>
+                <th>Dificuldade</th>
+            </tr>
+        </thead>
+        <tbody class="tabela">
+            {{#each pontuacoes}}
+            <tr id="{{ id }}">
+                <th scope="row">1</th>
+                <td class="nome-usuario">{{ nome }}</td>
+                <td class="pontos">{{ pontos }}</td>
+                <td class="dificuldade">{{ dificuldade }}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </div>
-<div id="bh" class="placar">
-    <ol>
-        {{#each pontuacoes}}
-        <li id="{{ id }}">
-            <span class="nome-usuario">{{ nome }}</span>
-            <span class="pontos">{{ pontos }}</span>
-            <span class="dificuldade">{{ dificuldade }}</span>        
-        </li>
-        {{/each}}
-    </ol>
+<div id="btn-pagina">
+        <button id="btn-anterior">Anterior</button>
+        <button id="btn-proximo">Próxima</button>
 </div>
