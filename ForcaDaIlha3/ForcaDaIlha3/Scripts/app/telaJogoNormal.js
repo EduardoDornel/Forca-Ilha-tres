@@ -7,6 +7,7 @@
         this.letrasAcertadas = "";
         this.palavraDaJogada = "";
         this.dica = "";
+        this.palpitando = false;
         this.quantidadeDeLetras = 0;
         this.$elem = $(seletor);
         this.renderizarEstadoInicial();
@@ -22,11 +23,13 @@
         self.$btnPalpitar.on('click', self.palpitar.bind(self));
         //registra o evento de pressionar uma tecla
         document.onkeypress = function (evento) {
-            let tecla = teclaPressionada(evento);
-            let alfabeto = 'abcdefghijklmnopqrstuvwxyz';
-            if (alfabeto.indexOf(tecla) != -1) {
-                if (self.letrasErradas.indexOf(tecla) == -1 && self.letrasAcertadas.indexOf(tecla) == -1) {
-                    self.registrarJogada(tecla);
+            if(!self.palpitando){
+                let tecla = teclaPressionada(evento);
+                let alfabeto = 'abcdefghijklmnopqrstuvwxyz';
+                if (alfabeto.indexOf(tecla) != -1) {
+                    if (self.letrasErradas.indexOf(tecla) == -1 && self.letrasAcertadas.indexOf(tecla) == -1) {
+                        self.registrarJogada(tecla);
+                    }
                 }
             }
         }
@@ -40,8 +43,18 @@
         
     }
     palpitar() {
+        this.palpitando = true;
         this.$divUtilitaria.append("<input type=\"text\" id=\"input-palpite\" class=\"form-control\">");
-        this.$divUtilitaria.append("<button id=\"btn-inserir-palpite\" class=\"btn btn-primary\"><\button>");
+        this.$divUtilitaria.append("<button id=\"btn-inserir-palpite\" class=\"btn btn-primary\">Palpitar</\button>");
+        $('#btn-inserir-palpite').on('click', this.compararPalpite.bind(this));
+    }
+    compararPalpite() {
+        var palpite = $('#input-palpite').val();
+        if (this.palavraDaJogada === palpite.toLowerCase()) {
+            this.ganhou(2);
+        }else{
+            this.gameOver(self);
+        }
     }
     exibirDica() {
         this.$btnDica.prop("disabled", true);
@@ -61,7 +74,7 @@
                 }
             }
             if (this.acertos === this.quantidadeDeLetras) {
-                this.ganhou();
+                this.ganhou(1);
             }
         } else {
             if(this.erros == 4){
@@ -83,9 +96,9 @@
             })
     }
 
-    ganhou() {
+    ganhou(pontuacaoDaRodada) {
         let pontuacao = window.localStorage.getItem('pontuacao');
-        window.localStorage.setItem('pontuacao', JSON.parse(pontuacao) + 1);
+        window.localStorage.setItem('pontuacao', JSON.parse(pontuacao) + pontuacaoDaRodada);
         forca.renderizarTela('normal');
     }
 
