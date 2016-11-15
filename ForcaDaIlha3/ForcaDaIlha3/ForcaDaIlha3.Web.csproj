@@ -234,6 +234,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\forca.js" />
     <Content Include="Scripts\app\telaAviso.js" />
+    <Content Include="Scripts\app\telaJogo.js" />
     <Content Include="Scripts\app\telaJogoBH.js" />
     <Content Include="Scripts\app\telaJogoNormal.js" />
     <Content Include="Scripts\app\telaMenu.js" />

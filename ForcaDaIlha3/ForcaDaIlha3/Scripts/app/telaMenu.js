@@ -25,8 +25,8 @@
     }
 
     verificarUsuario(self) {
-      var nome = $('#nome-player').val();
-        $.get('/api/jogo', { nome: nome })
+        var nomeDigitado = $('#nome-player').val();
+        $.get('/api/jogo', { nome: nomeDigitado })
             .done(function (res) {
                 window.localStorage.setItem('id-usuario', res.dados);
                 window.localStorage.setItem('pontuacao', 0);
