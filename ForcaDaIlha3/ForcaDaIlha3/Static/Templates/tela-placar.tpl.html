@@ -1,11 +1,11 @@
-﻿<form id="form-placar">
+﻿<form id="form-placar" class="form-horizontal">    
     <div>   
-        <input type='radio' class="radio-inline" name='tipo-placar' value='normal' />
-        <input type='radio' class="radio-inline" name='tipo-placar' value='bh' />
-        <!--<input type="radio" class="radio-inline" name="tipo-placar" value="mesclado"/>-->
+        <input type='radio' class="radio-inline" name='tipo-placar' id="normal" value='normal' />Normal
+        <input type='radio' class="radio-inline" name='tipo-placar' id="bh" value='bh' /> BH
+        <button type="submit" class="btn btn-primary" id="btn-filtrar">Filtrar</button>
     </div>    
 </form>
-<div id="normal" class="placar">
+<div id="placar">
     <ol>
         {{#each pontuacoes}}
         <li id="{{ id }}">
@@ -16,14 +16,11 @@
         {{/each}}
     </ol>
 </div>
-<div id="bh" class="placar">
-    <ol>
-        {{#each pontuacoes}}
-        <li id="{{ id }}">
-            <span class="nome-usuario">{{ nome }}</span>
-            <span class="pontos">{{ pontos }}</span>
-            <span class="dificuldade">{{ dificuldade }}</span>        
-        </li>
-        {{/each}}
-    </ol>
+<div id="container-btn-pagina">
+    <div class="btn-pagina-anterior">
+        <button>Anterior</button>
+    </div>
+    <div class="btn-pagina-posterior">
+        <button>Próxima</button>
+    </div>
 </div>
