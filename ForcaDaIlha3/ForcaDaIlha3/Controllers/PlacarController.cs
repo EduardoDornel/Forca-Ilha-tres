@@ -9,13 +9,17 @@ using System.Web.Mvc;
 
 namespace ForcaDaIlha3.Web.Controllers
 {
-    public class Placar : ApiController
+    public class PlacarController : ApiController
     {
         // GET: LeaderBoard
-        public IHttpActionResult ListarPlacar(string filtro = null)
+        public IHttpActionResult GetListarPlacar(int pagina, string filtro)
         {
             PontuacaoServico pontuacaoServico = ServicoDeDependencia.MontarPontuacaoServico();
             return Ok(pontuacaoServico.LeaderBoard(1, filtro));
+        }
+        public IHttpActionResult GetTeste()
+        {
+            return Ok("ok");
         }
     }
 }

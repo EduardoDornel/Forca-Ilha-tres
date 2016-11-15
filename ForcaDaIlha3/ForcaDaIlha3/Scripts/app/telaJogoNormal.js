@@ -7,6 +7,7 @@
         this.letrasAcertadas = "";
         this.palavraDaJogada = "";
         this.dica = "";
+        this.palpitando = false;
         this.quantidadeDeLetras = 0;
         this.$elem = $(seletor);
         this.renderizarEstadoInicial();
@@ -15,18 +16,20 @@
     registrarBindsEventos(self) {
         self.$btnReiniciar = $('#btn-reiniciar-jogo');
         self.$btnDica = $('#btn-dica');
-        self.$divDica = $('#dica');
+        self.$divUtilitaria = $('#div-utilitaria');
         self.$btnPalpitar = $('#btn-palpitar-palavra');
         self.$btnReiniciar.on('click', self.reiniciar.bind(self));
         self.$btnDica.on('click', self.exibirDica.bind(self));
         self.$btnPalpitar.on('click', self.palpitar.bind(self));
         //registra o evento de pressionar uma tecla
         document.onkeypress = function (evento) {
-            let tecla = teclaPressionada(evento);
-            let alfabeto = 'abcdefghijklmnopqrstuvwxyz';
-            if (alfabeto.indexOf(tecla) != -1) {
-                if (self.letrasErradas.indexOf(tecla) == -1 && self.letrasAcertadas.indexOf(tecla) == -1) {
-                    self.registrarJogada(tecla);
+            if(!self.palpitando){
+                let tecla = teclaPressionada(evento);
+                let alfabeto = 'abcdefghijklmnopqrstuvwxyz';
+                if (alfabeto.indexOf(tecla) != -1) {
+                    if (self.letrasErradas.indexOf(tecla) == -1 && self.letrasAcertadas.indexOf(tecla) == -1) {
+                        self.registrarJogada(tecla);
+                    }
                 }
             }
         }
@@ -40,10 +43,22 @@
         
     }
     palpitar() {
+        this.palpitando = true;
+        this.$divUtilitaria.append("<input type=\"text\" id=\"input-palpite\" class=\"form-control\">");
+        this.$divUtilitaria.append("<button id=\"btn-inserir-palpite\" class=\"btn btn-primary\">Palpitar</\button>");
+        $('#btn-inserir-palpite').on('click', this.compararPalpite.bind(this));
+    }
+    compararPalpite() {
+        var palpite = $('#input-palpite').val();
+        if (this.palavraDaJogada === palpite.toLowerCase()) {
+            this.ganhou(2);
+        }else{
+            this.gameOver(self);
+        }
     }
     exibirDica() {
         this.$btnDica.prop("disabled", true);
-        this.$divDica.append("<h2 id=\"dica-temporaria\">" + this.dica + "</h2>");
+        this.$divUtilitaria.append("<h2 id=\"dica-temporaria\">" + this.dica + "</h2>");
         setTimeout(function () {
             $("#dica-temporaria").remove();
         }, 2000);
@@ -59,7 +74,7 @@
                 }
             }
             if (this.acertos === this.quantidadeDeLetras) {
-                this.ganhou();
+                this.ganhou(1);
             }
         } else {
             if(this.erros == 4){
@@ -81,9 +96,9 @@
             })
     }
 
-    ganhou() {
+    ganhou(pontuacaoDaRodada) {
         let pontuacao = window.localStorage.getItem('pontuacao');
-        window.localStorage.setItem('pontuacao', JSON.parse(pontuacao) + 1);
+        window.localStorage.setItem('pontuacao', JSON.parse(pontuacao) + pontuacaoDaRodada);
         forca.renderizarTela('normal');
     }
 
@@ -98,7 +113,6 @@
                 self.palavraDaJogada = res.palavra.texto;
                 console.log(self.palavraDaJogada);
                 self.quantidadeDeLetras = res.palavra.tamanhoDaPalavra;
-                console.log(self.quantidadeDeLetras);
                 self.dica = res.palavra.dica;
                 window.localStorage.setItem('ids-palavras', JSON.stringify(res.ids));
                 self.renderizarPalavra(self);
@@ -116,7 +130,6 @@
             let ehEspaco = letraAtual === " ";
             listaDeLetras.push({ letra: letraAtual, espaco: ehEspaco, traco: ehTraco, id: i });
         }
-        console.log(listaDeLetras);
         forca.render('.tela', 'tela-jogo', {
             pontuacao: window.localStorage.getItem('pontuacao'),
             letras: listaDeLetras,

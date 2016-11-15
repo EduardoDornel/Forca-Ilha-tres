@@ -208,7 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JogoController.cs" />
-    <Compile Include="Controllers\Placar.cs" />
+    <Compile Include="Controllers\PlacarController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -236,7 +236,6 @@
     <Content Include="Scripts\app\telaAviso.js" />
     <Content Include="Scripts\app\telaJogoBH.js" />
     <Content Include="Scripts\app\telaJogoNormal.js" />
-    <Content Include="Scripts\app\telaLeaderboard.js" />
     <Content Include="Scripts\app\telaMenu.js" />
     <Content Include="Scripts\app\telaPlacar.js" />
     <Content Include="Scripts\app\_start.js" />
