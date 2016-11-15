@@ -57,14 +57,23 @@
         let pontuacao = window.localStorage.getItem('pontuacao');
         let idUsuario = window.localStorage.getItem('id-usuario');
         $.get('/api/jogo', { pontos: pontuacao, idUsuario: idUsuario, dificuldade: self.dificuldade })
-            .done(function (res) {
-                self.reiniciar(self);
+            .done(function () {
+                self.renderizarAviso('game-over');
             })
     }
     ganhou(pontuacaoDaRodada) {
         let pontuacao = window.localStorage.getItem('pontuacao');
         window.localStorage.setItem('pontuacao', JSON.parse(pontuacao) + pontuacaoDaRodada);
-        forca.renderizarTela(this.dificuldade);
+        let qtdPalavrasRestantes = JSON.parse(window.localStorage.getItem('ids-palavras')).length;
+        if (qtdPalavrasRestantes === 0) {
+            this.renderizarAviso('vitoria');
+        } else {
+            forca.renderizarTela(this.dificuldade);
+        }
+    }
+    renderizarAviso(status) {
+        window.localStorage.setItem('dificuldade', this.dificuldade);
+        forca.renderizarTela(status);
     }
     pegarPalavra(self) {
         let ids = window.localStorage.getItem('ids-palavras');
@@ -103,7 +112,6 @@
         });
     }
     reiniciar(self) {
-        var dif = self.dificuldade;
         $.get('/api/jogo', { dificuldade: self.dificuldade })
             .done(function (res) {
                 let idsPalavras = res.dados;
