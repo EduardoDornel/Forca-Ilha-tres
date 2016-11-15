@@ -2,6 +2,7 @@
 /// <reference path="app/_start.js" />
 /// <reference path="app/forca.js" />
 /// <reference path="app/telaaviso.js" />
+/// <reference path="app/telajogo.js" />
 /// <reference path="app/telajogobh.js" />
 /// <reference path="app/telajogonormal.js" />
 /// <reference path="app/telamenu.js" />

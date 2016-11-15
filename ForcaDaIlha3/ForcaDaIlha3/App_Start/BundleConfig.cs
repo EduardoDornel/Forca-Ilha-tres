@@ -20,6 +20,7 @@ namespace ForcaDaIlha3
                "~/Scripts/handlebars.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                "~/Scripts/app/telaJogo.js",
                 "~/Scripts/app/telaMenu.js",
                 "~/Scripts/app/telaJogoNormal.js",
                 "~/Scripts/app/telaJogoBH.js",
