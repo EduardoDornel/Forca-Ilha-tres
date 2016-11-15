@@ -13,17 +13,17 @@
 }
 
 body {
-    background: -webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
+   /* background: -webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
     background: -moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);
-    background: radial-gradient( center center,circle cover,#078ABE, #0D343A);
-   /*background: url(Images/thumbnail_ISLAND.jpg);*/
+    background: radial-gradient( center center,circle cover,#078ABE, #0D343A);*/
+   background: url(Images/ISLAND-FORCA.jpg);
     font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
 }
 
 .fundo-escuro {
-    background: -webkit-radial-gradient( center center,circle cover, black, green) !important; 
-    background: -moz-radial-gradient( center center,circle cover, black, green) !important;
-    background: radial-gradient( center center,circle cover, black, green) !important;
+    background: -webkit-radial-gradient( center center,circle cover, gray, green) !important; 
+    background: -moz-radial-gradient( center center,circle cover, gray, green) !important;
+    background: radial-gradient( center center,circle cover, gray, green) !important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -110,6 +110,7 @@ textarea {
     float: right;
     margin: 30px 5px 0;
     font-size: 15px;
+    color: white;
 }
 
     .pontuacao > h2 {
@@ -161,7 +162,7 @@ footer {
 .dificuldade {
     display: inline-block;
     width: auto;
-    color: black;
+    color: white;
 }
 
 .letras-erradas {
