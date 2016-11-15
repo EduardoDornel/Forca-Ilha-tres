@@ -5,11 +5,23 @@
         this.renderizarEstadoInicial();
     }
 
-    registrarBindsEventos() {
-        this.$rbTipoPlacar = $('input[name="tipo-placar"]');
-        this.$rbTipoPlacar.on('change', this.mudarPlacar);
-        this.$divPlacarBH = ('#bh');
-        this.$divPlacarNormal = ('#normal');
+    registrarBindsEventos() {        
+        this.$radiobtnNormal = $('#normal');
+        this.$radiobtnBH = $('#bh');
+        this.$btnFiltrar = $('#btn-filtrar');        
+        this.$btnFiltrar.on('click', this.filtrar);        
+    }
+
+    filtrar() {        
+        this.paginaAtual = 1;
+        let filtro = '';        
+        if ($(this.$radiobtnNormal).is(':checked')) {
+            this.filtro = 'normal';
+        } else if ($(this.$radiobtnBH).is(':checked')) {
+            this.filtro = 'bh';
+        }
+        console.log(this.paginaAtual);
+        this.pegarPlacar(this.paginaAtual, this.filtro);
     }
 
     pegarPlacar(pagina, filtro) {
@@ -22,8 +34,16 @@
     }
 
     mudarPlacar() {
-        this.$divPlacarBH.toggle();
-        this.$divPlacarNormal.toggle();
+        if ($(this.$radiobtnNormal).is(':checked')) {
+            $('#placar-normal').show();
+            $('#placar-bh').hide();
+        } else if ($(this.$radiobtnBH).is(':checked')) {
+            $('#placar-normal').hide();
+            $('#placar-bh').show();
+        } else {
+            $('#placar-normal').show();
+            $('#placar-bh').show();
+        }        
     }
 
     renderizarPlacar(placar) {
@@ -43,6 +63,9 @@
 
     renderizarEstadoInicial() {
         this.$elem.show();
-        this.pegarPlacar(1, 'normal')
+        this.paginaAtual = 1;
+        this.filtro = 'normal';
+        var self = this;
+        this.pegarPlacar(this.paginaAtual, this.filtro, self);        
     }
 }
