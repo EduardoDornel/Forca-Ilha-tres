@@ -33,24 +33,20 @@
             let tecla = evento.keyCode || evento.which;
             return String.fromCharCode(tecla);
         }
-        //setTimeout(function () {
-            self.iniciarTimer();
-        //}, 5000);
+        self.iniciarTimer();
     }
     iniciarTimer() {
-        console.log('chamou timer');
         var self = this;
         self.timer = window.setInterval(function () {
-            console.log('time out')
-            self.registrarJogada("");
-        }, 5000);
+            self.gameOver(self);
+        }, 20000);
     }
     palpitar() {
 
     }
     registrarJogada(jogada) {
         clearInterval(this.timer);
-        if (this.palavraDaJogada.indexOf(jogada) !== -1 && jogada !== "") {
+        if (this.palavraDaJogada.indexOf(jogada) !== -1) {
             for (let i = 0; i < this.palavraDaJogada.length; i++) {
                 let letraAtual = this.palavraDaJogada.substring(i, i + 1);
                 if (letraAtual === jogada) {
@@ -68,10 +64,8 @@
                 this.gameOver(this);
             } else {
                 this.erros++;
-                if(jogada !== ""){
-                    this.letrasErradas += jogada;
-                    $('.letras-erradas').append("<h2>" + jogada.toUpperCase() + "</h2>");
-                }
+                this.letrasErradas += jogada;
+                $('.letras-erradas').append("<h2>" + jogada.toUpperCase() + "</h2>");
                 this.iniciarTimer();
             }
         }

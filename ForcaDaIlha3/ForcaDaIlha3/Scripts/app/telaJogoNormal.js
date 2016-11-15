@@ -100,7 +100,6 @@
                 self.palavraDaJogada = res.palavra.texto;
                 console.log(self.palavraDaJogada);
                 self.quantidadeDeLetras = res.palavra.tamanhoDaPalavra;
-                console.log(self.quantidadeDeLetras);
                 self.dica = res.palavra.dica;
                 window.localStorage.setItem('ids-palavras', JSON.stringify(res.ids));
                 self.renderizarPalavra(self);
@@ -118,7 +117,6 @@
             let ehEspaco = letraAtual === " ";
             listaDeLetras.push({ letra: letraAtual, espaco: ehEspaco, traco: ehTraco, id: i });
         }
-        console.log(listaDeLetras);
         forca.render('.tela', 'tela-jogo', {
             pontuacao: window.localStorage.getItem('pontuacao'),
             letras: listaDeLetras,
