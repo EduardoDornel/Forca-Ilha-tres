@@ -18,7 +18,9 @@
         self.$btnProximo.on('click', this.buscarProximaPagina.bind(self));
         self.$btnAnterior.on('click', this.buscarPaginaAnterior.bind(self));
         self.setarRadioButton();
-        pegarQuantidadePontuacoes();
+        self.pegarQuantidadePontuacoes(self.dificuldade);
+    }
+    desativarBotoes() {
         if (self.paginaAtual <= 1) {
             self.$btnAnterior.attr('disabled', true);
         } else {
@@ -72,11 +74,13 @@
         });
     }
 
-    pegarQuantidadePontuacoes() {
+    pegarQuantidadePontuacoes(filtroAtual) {
+        let self = this;
         $.get('/api/placar', {
             filtro: filtroAtual
         }).then((res) => {
-            this.quantidadeRegistros = res;
+            self.quantidadeRegistros = res;
+            self.desativarBotoes();
         });
     }
 
