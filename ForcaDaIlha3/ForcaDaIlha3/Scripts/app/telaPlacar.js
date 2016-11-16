@@ -7,21 +7,34 @@
 
     registrarBindsEventos() {        
         this.$radiobtnNormal = $('#normal');
-        this.$radiobtnBH = $('#bh');
+        this.$radiobtnBH = $('#bh');        
         this.$btnFiltrar = $('#btn-filtrar');        
-        this.$btnFiltrar.on('click', this.filtrar);        
+        this.$btnFiltrar.on('click', this.filtrar);
+        this.$btnProximo = $('#btn-proximo');
+        this.$btnAnterior = $('#btn-anterior');
+        this.$btnProximo.on('click', this.buscarProximaPagina.bind(this));
+        this.$btnAnterior.on('click', this.buscarPaginaAnterior.bind(this));
+    }
+
+    buscarProximaPagina() {
+        this.pegarPlacar(++this.paginaAtual, this.filtro);
+    }
+
+    buscarPaginaAnterior() {
+        if (!this.paginaAtual <= 1) {
+            this.pegarPlacar(--this.paginaAtual, this.filtro);
+        }        
     }
 
     filtrar() {        
         this.paginaAtual = 1;
-        let filtro = '';        
-        if ($(this.$radiobtnNormal).is(':checked')) {
+        this.filtro = '';        
+        if ($('#normal').is(':checked')) {
             this.filtro = 'normal';
-        } else if ($(this.$radiobtnBH).is(':checked')) {
+        } else if ($('#bh').is(':checked')) {
             this.filtro = 'bh';
-        }
-        console.log(this.paginaAtual);
-        this.pegarPlacar(this.paginaAtual, this.filtro);
+        }        
+        pegarPlacar(this.paginaAtual, this.filtro);
     }
 
     pegarPlacar(pagina, filtro) {
@@ -64,8 +77,7 @@
     renderizarEstadoInicial() {
         this.$elem.show();
         this.paginaAtual = 1;
-        this.filtro = 'normal';
-        var self = this;
-        this.pegarPlacar(this.paginaAtual, this.filtro, self);        
+        this.filtro = 'normal';        
+        this.pegarPlacar(this.paginaAtual, this.filtro);        
     }
 }
