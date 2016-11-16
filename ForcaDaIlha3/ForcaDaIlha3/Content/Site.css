@@ -16,7 +16,7 @@ body {
    /* background: -webkit-radial-gradient( center center,circle cover,#078ABE, #0D343A);
     background: -moz-radial-gradient( center center,circle cover,#078ABE, #0D343A);
     background: radial-gradient( center center,circle cover,#078ABE, #0D343A);*/
-   background: url(Images/ISLAND-FORCA.jpg);
+   background: url(Images/ISLAND-FORCA-ASS.jpg);
     font-family: 'gothic', CenturyGothic, AppleGothic, sans-serif;
 }
 
@@ -263,6 +263,9 @@ section {
     font-size: 25px;
     margin: 0 auto;
     display: table;
+    background-color: rgba(0,0,0,0.5);
+    padding: 30px;
+    border-radius: 15px;
 }
 
 #botoes{
@@ -270,20 +273,11 @@ section {
     margin-bottom: 20px;
     color: white;
     margin-top: 50px;
+    font-size: 22px;
 }
 
 #btn-filtrar{
     margin-left: 20px;
-    background-color: darkblue;
-    border-color: white;
-}
-
-#normal{
-    font-size: 22px;
-}
-
-#bh{
-    font-size: 22px;
 }
 
 #btn-pagina{
@@ -291,21 +285,21 @@ section {
 }
 
 #btn-anterior{
-    background-color: darkblue;
     position: relative;
     left: 440px;
     color: white;
-    border-radius: 6px;
 }
 
 #btn-proximo{
-    background-color: darkblue;
     position: relative;
     left: 580px;
     color: white;
-    border-radius: 6px;
 }
 
 #descricao{
+    color: white;
+}
+
+.tabela{
     color: white;
 }
