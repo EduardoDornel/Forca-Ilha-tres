@@ -21,6 +21,13 @@ forca.renderizarTela = function (nome) {
             break;
         case 'placar':
             new TelaPlacar('#tela-placar');
+            break;
+        case 'game-over':
+            new TelaAviso('#tela-game-over');
+            break;
+        case 'vitoria':
+            new TelaAviso('#tela-vitoria');
+            break;
     }
 
 }
