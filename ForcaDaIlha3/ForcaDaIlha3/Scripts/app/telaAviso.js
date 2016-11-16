@@ -52,6 +52,8 @@
                 let idsPalavras = res.dados;
                 window.localStorage.setItem('ids-palavras', JSON.stringify(idsPalavras));
                 forca.renderizarTela(self.dificuldade);
+            }).catch((err) => {
+                console.error('Erro ao carregar novamente a tela de jogo!');
             });
     }
 

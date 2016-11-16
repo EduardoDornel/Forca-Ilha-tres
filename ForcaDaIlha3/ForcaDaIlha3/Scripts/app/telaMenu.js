@@ -31,7 +31,9 @@
                 window.localStorage.setItem('id-usuario', res.dados);
                 window.localStorage.setItem('pontuacao', 0);
                 self.carregarJogo(self);
-            })
+            }).catch((err) => {
+                console.error('Erro ao cadastrar/selecionar usuário!');
+            });
     }
 
     carregarJogo(self) {
@@ -42,6 +44,8 @@
                 self.idsPalavras = res.dados;
                 window.localStorage.setItem('ids-palavras', JSON.stringify(self.idsPalavras));
                 forca.renderizarTela(self.dificuldade);
+            }).catch((err) => {
+                console.error('Erro ao carregar a tela de jogo!');
             });
     }
 

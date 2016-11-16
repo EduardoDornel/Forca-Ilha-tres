@@ -59,7 +59,9 @@
         $.get('/api/jogo', { pontos: pontuacao, idUsuario: idUsuario, dificuldade: self.dificuldade })
             .done(function () {
                 self.renderizarAviso('game-over');
-            })
+            }).catch((err) => {
+                console.error('Erro ao registrar a pontuação!');
+            });
     }
     ganhou(pontuacaoDaRodada) {
         let pontuacao = window.localStorage.getItem('pontuacao');
@@ -117,6 +119,8 @@
                 let idsPalavras = res.dados;
                 window.localStorage.setItem('ids-palavras', JSON.stringify(idsPalavras));
                 forca.renderizarTela(self.dificuldade);
+            }).catch((err) => {
+                console.error('Erro ao carregar novamente a tela de jogo!');
             });
     }
     renderizarEstadoInicial() {

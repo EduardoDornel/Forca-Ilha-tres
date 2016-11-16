@@ -18,6 +18,8 @@
             filtro: filtro
         }).then((res) => {
             this.renderizarPlacar(res)
+        }).catch((err) => {
+            console.error('Erro ao resgatar o placar!');
         });
     }
 
