@@ -5,15 +5,15 @@
         this.renderizarEstadoInicial();
     }
 
-    registrarBindsEventos() {        
-        this.$radiobtnNormal = $('#normal');
-        this.$radiobtnBH = $('#bh');        
-        this.$btnFiltrar = $('#btn-filtrar');        
-        this.$btnFiltrar.on('click', this.filtrar);
-        this.$btnProximo = $('#btn-proximo');
-        this.$btnAnterior = $('#btn-anterior');
-        this.$btnProximo.on('click', this.buscarProximaPagina.bind(this));
-        this.$btnAnterior.on('click', this.buscarPaginaAnterior.bind(this));
+    registrarBindsEventos(self) {        
+        self.$radiobtnNormal = $('#normal');
+        self.$radiobtnBH = $('#bh');
+        self.$btnFiltrar = $('#btn-filtrar');
+        self.$btnFiltrar.on('click', this.filtrar);
+        self.$btnProximo = $('#btn-proximo');
+        self.$btnAnterior = $('#btn-anterior');
+        self.$btnProximo.on('click', this.buscarProximaPagina.bind(self));
+        self.$btnAnterior.on('click', this.buscarPaginaAnterior.bind(self));
     }
 
     buscarProximaPagina() {
@@ -37,14 +37,12 @@
         pegarPlacar(this.paginaAtual, this.filtro);
     }
 
-    pegarPlacar(pagina, filtro) {
+    pegarPlacar(pagina, filtro, self) {
         $.get('/api/placar', {
-            pagina: pagina,
-            filtro: filtro
+            pagina: self.pagina,
+            filtro: self.filtro
         }).then((res) => {
-            this.renderizarPlacar(res)
-        }).catch((err) => {
-            console.error('Erro ao resgatar o placar!');
+            this.renderizarPlacar(res, self)
         });
     }
 
@@ -61,7 +59,7 @@
         }        
     }
 
-    renderizarPlacar(placar) {
+    renderizarPlacar(placar, self) {
         return forca.render('.tela', 'tela-placar', {
             pontuacoes: placar.map(function (pontuacao) {
                 return {
@@ -72,14 +70,15 @@
                 }
             })
         }).then(() => {
-            this.registrarBindsEventos();
+            this.registrarBindsEventos(self);
         });
     }    
 
     renderizarEstadoInicial() {
         this.$elem.show();
         this.paginaAtual = 1;
-        this.filtro = 'normal';        
-        this.pegarPlacar(this.paginaAtual, this.filtro);        
+        this.filtro = 'normal';
+        var self = this;
+        this.pegarPlacar(this.paginaAtual, this.filtro, self);        
     }
 }
