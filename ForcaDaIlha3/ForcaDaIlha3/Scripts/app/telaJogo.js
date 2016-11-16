@@ -117,6 +117,7 @@
         $.get('/api/jogo', { dificuldade: self.dificuldade })
             .done(function (res) {
                 let idsPalavras = res.dados;
+                window.localStorage.setItem('pontuacao', 0);
                 window.localStorage.setItem('ids-palavras', JSON.stringify(idsPalavras));
                 forca.renderizarTela(self.dificuldade);
             }).catch((err) => {
