@@ -20,7 +20,7 @@ namespace ForcaDaIlha3.Repositorio.Repositorios
                     return contexto.Pontuacao
                         .Include(p => p.Usuario)
                         .Where(p => p.Dificuldade.Equals(filtro))
-                        .OrderBy(p => p.QuantidadePontos)
+                        .OrderByDescending(p => p.QuantidadePontos)
                         .Skip((pulo - 1) * 5)
                         .Take(5)
                         .ToList();
@@ -31,7 +31,16 @@ namespace ForcaDaIlha3.Repositorio.Repositorios
                 }
             }
         }
-
+        public int QuantidadePontuacoes(string filtro)
+        {
+            using (var contexto = new ContextoDeDados())
+            {
+                return contexto.Pontuacao
+                           .Include(p => p.Usuario)
+                           .Where(p => p.Dificuldade.Equals(filtro))
+                           .Count();
+            }
+        }
         public void Pontuar(Pontuacao novaPontuacao)
         {
             using (var contexto = new ContextoDeDados())

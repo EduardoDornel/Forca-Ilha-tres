@@ -15,11 +15,12 @@ namespace ForcaDaIlha3.Web.Controllers
         public IHttpActionResult GetListarPlacar(int pagina, string filtro)
         {
             PontuacaoServico pontuacaoServico = ServicoDeDependencia.MontarPontuacaoServico();
-            return Ok(pontuacaoServico.LeaderBoard(1, filtro));
+            return Ok(pontuacaoServico.LeaderBoard(pagina, filtro));
         }
-        public IHttpActionResult GetTeste()
+        public IHttpActionResult GetQuantidadePontuacoes(string filtro)
         {
-            return Ok("ok");
+            PontuacaoServico pontuacaoServico = ServicoDeDependencia.MontarPontuacaoServico();
+            return Ok(pontuacaoServico.QuantidadePontuacoes(filtro));
         }
     }
 }

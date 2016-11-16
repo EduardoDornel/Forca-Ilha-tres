@@ -24,5 +24,10 @@ namespace ForcaDaIlha3.Dominio.Servicos
         {
             this.PontuacaoRepositorio.Pontuar(novaPontuacao);
         }
+
+        public int QuantidadePontuacoes(string filtro)
+        {
+            return this.PontuacaoRepositorio.QuantidadePontuacoes(filtro);
+        }
     }
 }

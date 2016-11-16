@@ -1,10 +1,8 @@
-﻿<form id="form-placar" class="form-horizontal">    
-    <div id="botoes">   
-        <input type='radio' class="radio-inline" name='tipo-placar' id="normal" value='normal' />Normal
-        <input type='radio' class="radio-inline" name='tipo-placar' id="bh" value='bh' /> BH
-        <button class="btn btn-primary" id="btn-filtrar">Filtrar</button>
-    </div>    
-</form>
+﻿<div id="botoes">   
+    <input type='radio' class="radio-inline" name='tipo-placar' id="rb-normal" value='normal'/>Normal
+    <input type='radio' class="radio-inline" name='tipo-placar' id="rb-bh" value='bh' /> BH
+    <button class="btn btn-primary" id="btn-filtrar">Filtrar</button>
+</div>    
 <div id="placar">
     <table class="table">
         <thead id="descricao">
@@ -18,7 +16,7 @@
         <tbody class="tabela">
             {{#each pontuacoes}}
             <tr id="{{ id }}">
-                <th scope="row">1</th>
+                <th scope="row">{{posicao}}</th>
                 <td class="nome-usuario">{{ nome }}</td>
                 <td class="pontos">{{ pontos }}</td>
                 <td class="dificuldade">{{ dificuldade }}</td>

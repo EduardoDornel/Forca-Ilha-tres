@@ -2,26 +2,51 @@
 
     constructor(seletor) {
         this.$elem = $(seletor);
+        this.paginaAtual = 1;
+        this.dificuldade = 'normal';
+        this.quantidadeRegistros = 0;
         this.renderizarEstadoInicial();
     }
 
     registrarBindsEventos(self) {        
-        self.$radiobtnNormal = $('#normal');
-        self.$radiobtnBH = $('#bh');
+        self.$radiobtnNormal = $('#rb-normal');
+        self.$radiobtnBH = $('#rb-bh');
         self.$btnFiltrar = $('#btn-filtrar');
-        self.$btnFiltrar.on('click', this.filtrar);
+        self.$btnFiltrar.on('click', this.filtrar.bind(this));
         self.$btnProximo = $('#btn-proximo');
         self.$btnAnterior = $('#btn-anterior');
         self.$btnProximo.on('click', this.buscarProximaPagina.bind(self));
         self.$btnAnterior.on('click', this.buscarPaginaAnterior.bind(self));
+        self.setarRadioButton();
+        pegarQuantidadePontuacoes();
+        if (self.paginaAtual <= 1) {
+            self.$btnAnterior.attr('disabled', true);
+        } else {
+            self.$btnAnterior.removeAttr('disabled');
+        }
+        let ultimaPagina = self.paginaAtual * 5 >= self.quantidadeRegistros;
+        if (ultimaPagina) {
+            self.$btnProximo.attr('disabled', true);
+        }
+    }
+    setarRadioButton() {
+        if(this.dificuldade === 'normal'){
+            this.$radiobtnNormal.prop('checked', true);
+        }
+        else
+        {
+            this.$radiobtnBH.prop('checked', true);
+        }
     }
 
     buscarProximaPagina() {
-        this.pegarPlacar(++this.paginaAtual, this.filtro);
+        if(this.quantidadeRegistros !== this.paginaAtual){
+            this.pegarPlacar(++this.paginaAtual, this.filtro);
+        }
     }
 
     buscarPaginaAnterior() {
-        if (!this.paginaAtual <= 1) {
+        if (this.paginaAtual > 1) {
             this.pegarPlacar(--this.paginaAtual, this.filtro);
         }        
     }
@@ -29,41 +54,39 @@
     filtrar() {        
         this.paginaAtual = 1;
         this.filtro = '';        
-        if ($('#normal').is(':checked')) {
+        if (this.$radiobtnNormal.is(':checked')) {
             this.filtro = 'normal';
-        } else if ($('#bh').is(':checked')) {
+        } else if (this.$radiobtnBH.is(':checked')) {
             this.filtro = 'bh';
         }        
-        pegarPlacar(this.paginaAtual, this.filtro);
+        this.pegarPlacar(this.paginaAtual, this.filtro);
     }
 
-    pegarPlacar(pagina, filtro, self) {
+    pegarPlacar(paginaAtual, filtroAtual) {
         $.get('/api/placar', {
-            pagina: self.pagina,
-            filtro: self.filtro
+            pagina: paginaAtual,
+            filtro: filtroAtual
         }).then((res) => {
-            this.renderizarPlacar(res, self)
+            this.dificuldade = filtroAtual;
+            this.renderizarPlacar(res, this)
         });
     }
 
-    mudarPlacar() {
-        if ($(this.$radiobtnNormal).is(':checked')) {
-            $('#placar-normal').show();
-            $('#placar-bh').hide();
-        } else if ($(this.$radiobtnBH).is(':checked')) {
-            $('#placar-normal').hide();
-            $('#placar-bh').show();
-        } else {
-            $('#placar-normal').show();
-            $('#placar-bh').show();
-        }        
+    pegarQuantidadePontuacoes() {
+        $.get('/api/placar', {
+            filtro: filtroAtual
+        }).then((res) => {
+            this.quantidadeRegistros = res;
+        });
     }
 
     renderizarPlacar(placar, self) {
+        let posicaoArray = 0;
         return forca.render('.tela', 'tela-placar', {
             pontuacoes: placar.map(function (pontuacao) {
                 return {
                     id: pontuacao.id,
+                    posicao: ((self.paginaAtual - 1) * 5) + 1 + posicaoArray++,
                     nome: pontuacao.usuario.nome,
                     pontos: pontuacao.quantidadePontos,
                     dificuldade: pontuacao.dificuldade
@@ -76,9 +99,7 @@
 
     renderizarEstadoInicial() {
         this.$elem.show();
-        this.paginaAtual = 1;
         this.filtro = 'normal';
-        var self = this;
-        this.pegarPlacar(this.paginaAtual, this.filtro, self);        
+        this.pegarPlacar(this.paginaAtual, this.filtro, this);
     }
 }
