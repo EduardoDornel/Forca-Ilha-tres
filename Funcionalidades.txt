@@ -1,0 +1,1 @@
+Dica - Há um botão Dica que o jogador pode clicar para receber uma dica sobre a palavra. 
